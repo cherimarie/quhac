@@ -15,4 +15,12 @@ RSpec.describe ProvidersController, type: :controller do
       expect(assigns(:providers)).to include(@pro2)
     end
   end
+
+  describe "show" do
+    it "sets the provider correctly" do
+      get :show, id: @pro1.id
+
+      expect(assigns(:provider)).to eq(@pro1)
+    end
+  end
 end
