@@ -1,0 +1,8 @@
+%h1 All Providers
+
+%ul
+  - @providers.each do |provider|
+    %li
+      = provider.name
+      = provider.city
+      = provider.insurers.map { |ins| ins.name } .join(", ")
