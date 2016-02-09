@@ -1,0 +1,11 @@
+%h1= @provider.name
+
+%h2= @provider.city
+
+%p This provider accepts the following insurances:
+%ul
+  - @provider.insurers.each do |insurer|
+    %li= insurer.name
+
+%button
+  = link_to "Home", providers_path
