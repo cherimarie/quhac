@@ -2,17 +2,17 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-     user ||= User.new # guest user (not logged in)
-      if user.role == "superadmin"
-        can :manage, :all
-      elsif user.role == "admin"
-         can :manage, Provider
-         can :manage, Insurer
-         can :manage, ProviderInsurer
-      else
-        can :read, Provider
-        can :read, Insurer
-        can :read, ProviderInsurer
-      end
+    user ||= User.new
+    can :read, [Provider, Insurer, ProviderInsurer]
+
+    if user.role == "superadmin"
+      can :access, :rails_admin
+      can :dashboard
+      can :manage, :all
+    elsif user.role == "admin"
+      can :access, :rails_admin
+      can :dashboard
+      can :manage, [Provider, Insurer, ProviderInsurer]
+    end
   end
 end

@@ -10,10 +10,12 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'haml'
 
 gem 'devise'
 gem 'cancancan', '~> 1.5'
-gem 'haml'
+gem 'rails_admin'
+
 
 group :test do
   gem 'simplecov', require: false

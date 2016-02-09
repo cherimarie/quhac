@@ -26,9 +26,9 @@ RSpec.describe ProvidersController, type: :controller do
 
   describe "access" do
     before do
-      @admin = User.create(email: "admin@example.com", password: "password", password_confirmation: "password", role: "admin")
-      @superadmin = User.create(email: "superadmin@example.com", password: "password", password_confirmation: "password", role: "superadmin")
-      @user = User.create(email: "user@example.com", password: "password", password_confirmation: "password", role: "user")
+      @admin = User.create(email: "admin1@example.com", password: "password", password_confirmation: "password", role: "admin")
+      @superadmin = User.create(email: "superadmin1@example.com", password: "password", password_confirmation: "password", role: "superadmin")
+      @user = User.create(email: "user1@example.com", password: "password", password_confirmation: "password", role: "user")
     end
 
     it "permits users to read Providers" do

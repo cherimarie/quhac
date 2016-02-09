@@ -16,7 +16,7 @@ class ProvidersController < ApplicationController
   end
 
   private
-  def provider_params
-     params.require(:provider).permit(:name, :city)
-   end
+  # def provider_params
+    # params.require(:provider).permit(:name, :city)
+  # end
 end
