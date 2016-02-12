@@ -9,6 +9,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'jquery-rails'
 gem 'haml'
+gem 'turbolinks'
+gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'devise'
 gem 'cancancan', '~> 1.5'
