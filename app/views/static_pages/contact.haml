@@ -1,1 +1,21 @@
-%h1 Contact
+%h1 Contact QuHac
+
+%p Use the form below to reach the QuHac team, or send an email to quhac@example.com
+
+=form_tag("/submit_contact", method: "post") do
+  %fieldset
+    %label{for: "name"} Your Name
+    %input{type: "text", name: "name"}
+
+  %fieldset
+    %label{for: "email"}
+      Your Email Address
+      %small if you'd like a reply
+    %input{type: "email", name: "email"}
+
+  %fieldset
+    %label{for: "comments"} Comments
+    %input{type: "text", name: "comments", required: "required"}
+
+  %fieldset
+    %input{type: "submit"}
