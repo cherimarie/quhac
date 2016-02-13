@@ -7,9 +7,7 @@ class StaticPagesController < ApplicationController
   end
 
   def submit_contact
-    puts params[:email]
-    puts params[:name]
-    puts params[:comments]
+    ContactMailer.new_contact(name: params[:name], email: params[:email], comments: params[:comments]).deliver
     flash[:notice] = "Thanks #{params[:name]}!"
     redirect_to root_path
   end
