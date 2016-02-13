@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   def new
-    puts params[:search]
+    @providers = Provider.search(params[:search])
 
     redirect_to providers_path
   end
