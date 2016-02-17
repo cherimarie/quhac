@@ -9,7 +9,7 @@ RSpec.describe ContactMailer, type: :mailer do
     end
 
     it 'renders the receiver email' do
-      expect(mail.to).to eql(['test@example.com'])
+      expect(mail.to).to eql(['quhac@gaycity.org'])
     end
 
     it 'renders the sender email' do
