@@ -5,6 +5,6 @@ class ContactMailer < ActionMailer::Base
     @name = name
     @email = email
     @comments = comments
-    mail(to: "test@example.com", subject: "New contact recieved")
+    mail(to: "quhac@gaycity.org", subject: "New contact recieved")
   end
 end
