@@ -2,7 +2,11 @@ class ProvidersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @providers = Provider.all
+    if params[:search]
+      @providers = Provider.search(params[:search])
+    else
+      @providers = Provider.all
+    end
   end
 
   def show

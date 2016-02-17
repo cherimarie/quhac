@@ -1,1 +1,9 @@
 %h1 About
+
+= form_tag "/providers", method: "get" do
+  = label_tag "Search for Providers"
+  = text_field_tag :search, params[:search], placeholder:"sparkle"
+  = submit_tag "search", name: nil
+
+= link_to providers_path do
+  %button Browse All Providers
