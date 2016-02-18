@@ -1,4 +1,6 @@
-%h1 About
+%h1 Advanced Search
+
+%p This will be replaced by a more complex search form when we understand our providers data model better.
 
 = form_tag "/providers", method: "get" do
   = label_tag "Search for Providers"
@@ -7,5 +9,3 @@
 
 = link_to providers_path do
   %button Browse All Providers
-
-= link_to "Advanced Search", advanced_search_path
