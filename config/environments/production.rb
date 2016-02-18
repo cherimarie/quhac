@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   # TODO: make this right:
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'http://quhac.herokuapp.com' }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
