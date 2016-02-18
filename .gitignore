@@ -16,3 +16,6 @@
 
 # Ignore SimpleCov generated files
 coverage
+
+# Ignore compiled assets
+public/

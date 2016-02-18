@@ -16,6 +16,8 @@ gem 'devise'
 gem 'cancancan', '~> 1.5'
 gem 'rails_admin'
 
+# Installing this globally, not just in production, in attempt to outsmart rack version error
+gem 'unicorn'
 
 group :test do
   gem 'simplecov', require: false
@@ -24,9 +26,4 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'pry'
-end
-
-
-group :production do
-  gem 'unicorn'
 end
