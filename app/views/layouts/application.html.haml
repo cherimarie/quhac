@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Quhac
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %header
+      = link_to root_path do
+        %h1 LOGO HERE
+      %p.notice= notice
+      %p.alert= alert
+    = yield
+    %footer
+      = link_to "Contact Us", contact_path
+      = link_to "Search Providers", advanced_search_path
+      %a{:alt => "Gay City", :href => "http://gaycity.org", :target => "_blank"} A project of Gay City
+      - if current_user
+        = link_to "Sign Out", destroy_user_session_path, method: :delete
+        = link_to "Admin Dashboard", rails_admin_path if can? :manage, Provider
+      - else
+        = link_to "Sign In", new_user_session_path

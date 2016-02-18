@@ -13,4 +13,7 @@ class StaticPagesController < ApplicationController
     flash[:notice] = "Thanks #{params[:name]}!"
     redirect_to root_path
   end
+
+  def advanced_search
+  end
 end
