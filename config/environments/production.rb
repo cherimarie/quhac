@@ -29,7 +29,8 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
-  config.assets.precompile += ["rails_admin/rails_admin.js", "rails_admin/rails_admin.css", "rails_admin/jquery.colorpicker.js", "rails_admin/jquery.colorpicker.css"]
+  config.assets.initialize_on_precompile = false
+config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
   # Generate digests for assets URLs.
   config.assets.digest = true
 
