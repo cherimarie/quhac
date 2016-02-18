@@ -16,6 +16,8 @@ gem 'devise'
 gem 'cancancan', '~> 1.5'
 gem 'rails_admin'
 
+gem 'rails_12factor'
+
 # Installing this globally, not just in production, in attempt to outsmart rack version error
 gem 'unicorn'
 
