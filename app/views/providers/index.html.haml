@@ -1,11 +1,16 @@
 %h1 All Providers
 
-%ul
-  - @providers.each do |provider|
-    %li
-      = link_to provider.name, provider_path(provider.id)
-      = provider.city
-      = provider.insurers.map { |ins| ins.name } .join(", ")
+%table.tablesorter
+  %thead
+    %th Name
+    %th City
+    %th Insurers
+  %tbody
+    - @providers.each do |provider|
+      %tr
+        %td= link_to provider.name, provider_path(provider.id)
+        %td= provider.city
+        %td= provider.insurers.map { |ins| ins.name } .join(", ")
 
 = link_to providers_path do
   %button Clear Search
