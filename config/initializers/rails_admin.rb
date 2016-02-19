@@ -23,4 +23,14 @@ RailsAdmin.config do |config|
   end
 
   config.excluded_models = ["ProviderInsurer"]
+
+  config.model 'User' do
+    include_fields :email, :role
+    configure :email do
+      read_only true
+    end
+    configure :role do
+      help "Set to 'admin' to permit them to update provider and insurer data. Set to 'superadmin' to permit them to make changes to user's roles. Set to anything else to prevent them from accessing the admin dashboard."
+    end
+  end
 end
