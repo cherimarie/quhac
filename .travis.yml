@@ -5,3 +5,9 @@ rvm:
   - 2.2.1
 cache: bundler
 bundler_args: --without production development
+script:
+  - RAILS_ENV=test bundle exec rake db:schema:load --trace
+  - bundle exec rake
+before_script:
+  - cp config/database.yml.example config/database.yml
+  - psql -c 'create database quhac_test' -U postgres
