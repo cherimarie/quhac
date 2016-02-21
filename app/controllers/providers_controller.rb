@@ -13,12 +13,6 @@ class ProvidersController < ApplicationController
     @provider = Provider.find_by(id: params[:id])
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   private
   def provider_params
     params.require(:provider).permit(:name, :city)
