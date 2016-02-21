@@ -1,4 +1,6 @@
 %h2 Sign up
+%p Note that an account is only necessary for administrators, and grants no additional privileges. Once you create your account, however, the QuHac team can grant you access to administrative tools.
+
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
   .field
