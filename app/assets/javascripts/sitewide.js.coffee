@@ -1,0 +1,3 @@
+$ ->
+  $('.tablesorter').tablesorter()
+  return
