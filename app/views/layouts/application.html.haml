@@ -6,19 +6,34 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
-    %header
-      = link_to root_path do
-        %h1 LOGO HERE
-      %p.notice= notice
-      %p.alert= alert
+  %body.center-block
+    .row
+      %header.col-xs-12
+        = link_to root_path do
+          = image_tag("quhac-facebookheader-pink.jpg")
+          %h1.sr-only.text-center
+            Queer Healthcare Accountability Coalition
+        %p.notice= notice
+        %p.alert= alert
+
     = yield
-    %footer
-      = link_to "Contact Us", contact_path
-      = link_to "Search Providers", advanced_search_path
-      %a{:alt => "Gay City", :href => "http://gaycity.org", :target => "_blank"} A project of Gay City
-      - if current_user
-        = link_to "Sign Out", destroy_user_session_path, method: :delete
-        = link_to "Admin Dashboard", rails_admin_path if can? :manage, Provider
-      - else
-        = link_to "Sign In", new_user_session_path
+
+    .row
+      .col-xs-12
+        .row
+        %footer.col-xs-12
+          .row
+            .col-xs-12
+              %ul
+                %li
+                  = link_to "Contact Us", contact_path
+                %li
+                  = link_to "Search Providers", advanced_search_path
+                %li
+                  - if current_user
+                    = link_to "Sign Out", destroy_user_session_path, method: :delete
+                    = link_to "Admin Dashboard", rails_admin_path if can? :manage, Provider
+          .row.gay-city
+            .col-xs-12.text-center
+              %a{:alt => "Gay City", :href => "http://gaycity.org", :target => "_blank"} A project of Gay City
+

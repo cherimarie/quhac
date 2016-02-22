@@ -1,0 +1,86 @@
+body {
+  max-width: 970px;
+  font-size: 16px;
+  font-family: "open sans";
+}
+
+header img {
+  max-width: 100%;
+  margin-bottom: 0;
+  border-bottom: 2px solid #000;
+}
+
+h2 {
+  margin: 2rem auto;
+  font-size: 3.5rem;
+}
+.quick-search {
+  background-color: black;
+  border-radius: 3px;
+  color: #fff;
+  margin-top: -3rem;
+  margin-bottom: 3rem;
+  padding: 3rem 4rem;
+  z-index: -1;
+  h2 {
+    margin-bottom: 3.5rem;
+    /*text-shadow: 1px 1px 1px rgba(255,0,101,.5);*/
+    color: $brand-primary;
+  }
+}
+
+.about {
+  border-radius: 3px;
+  margin-top: -5rem;
+  padding: 3rem;
+  z-index: -1;
+}
+
+input#search {
+  width: 78%;
+  border-radius: 2px;
+  padding: 7px;
+  border: 1px solid gray;
+}
+input[type="submit"] {
+  background-color: $brand-primary;
+  float: right;
+  border-radius: 2px;
+  border: 1px solid gray;
+  padding: 7px;
+}
+
+.qs-row-1 {
+  margin: 1rem auto 3.5rem;
+}
+
+.qs-row-2 {
+  margin-bottom: 2rem;
+}
+.qs-row-2 .btn {
+  color: $brand-primary;
+  background-color: #ddd;
+  border-radius: 2px;
+  width: 100%;
+  margin: .3rem auto;
+}
+
+footer {
+  border-top: 1px solid #000;
+  padding-top: 2rem;
+  ul {
+    list-style-type: none;
+  }
+  a {
+    color: $brand-primary;
+  }
+  .gay-city {
+    border-top: 1px solid #000;
+    margin-top: 1rem;
+    padding: 2.5rem;
+    a {
+      text-transform: uppercase;
+      font-weight: 100;
+    }
+  }
+}

@@ -1,11 +1,19 @@
-%h1 About
+.row
+  .col-xs-12
+    .quick-search.col-xs-5
+      %h2.text-center Quick Search
+      .qs-row-1
+        = form_tag "/providers", method: "get" do
+          = label_tag "Search for Providers"
+          = text_field_tag :search, params[:search], placeholder:"sparkle"
+          = submit_tag "search", name: nil
+      .qs-row-2
+        = link_to providers_path do
+          .btn.btn-link Browse All Providers
+        = link_to advanced_search_path do
+          .btn.btn-link Advanced Search
 
-= form_tag "/providers", method: "get" do
-  = label_tag "Search for Providers"
-  = text_field_tag :search, params[:search], placeholder:"sparkle"
-  = submit_tag "search", name: nil
-
-= link_to providers_path do
-  %button Browse All Providers
-
-= link_to "Advanced Search", advanced_search_path
+    .about.col-xs-7
+      %h2.text-center About
+      %p Cat ipsum dolor sit amet, make muffins. Human give me attention meow. Has closed eyes but still sees you climb a tree, wait for a fireman jump to fireman then scratch his face so hide when guests come over stick butt in face under the bed, thug cat , hide from vacuum cleaner. Make meme, make cute face hide from vacuum cleaner, paw at beetle and eat it before it gets away for purr for no reason.
+      %p Kitty loves pigs my left donut is missing, as is my right spit up on light gray carpet instead of adjacent linoleum, hide when guests come over. Sit on the laptop intently sniff hand, so kick up litter sleep in the bathroom sink missing until dinner time.
