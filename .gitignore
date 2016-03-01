@@ -19,3 +19,9 @@ coverage
 
 # Ignore compiled assets
 public/
+
+# Ignore application configuration
+/config/application.yml
+
+/vendor
+/public/assets
