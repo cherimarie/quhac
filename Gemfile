@@ -25,6 +25,7 @@ gem 'unicorn'
 
 group :test do
   gem 'simplecov', require: false
+  gem 'capybara'
 end
 
 group :development, :test do
