@@ -14,6 +14,14 @@ h2 {
   margin: 2rem auto;
   font-size: 3.5rem;
 }
+
+a {
+  color: $brand-primary;
+  &:focus {
+    outline-color: $brand-primary;
+  }
+}
+
 .quick-search {
   background-color: black;
   border-radius: 3px;
@@ -21,10 +29,11 @@ h2 {
   margin-top: -3rem;
   margin-bottom: 3rem;
   padding: 3rem 4rem;
-  z-index: -1;
+
   h2 {
+    font-size: 4rem;
     margin-bottom: 3.5rem;
-    /*text-shadow: 1px 1px 1px rgba(255,0,101,.5);*/
+    text-shadow: 2px 2px 2px rgba(255,0,101,.5);
     color: $brand-primary;
   }
 }
@@ -33,7 +42,6 @@ h2 {
   border-radius: 3px;
   margin-top: -5rem;
   padding: 3rem;
-  z-index: -1;
 }
 
 input#search {
@@ -41,6 +49,10 @@ input#search {
   border-radius: 2px;
   padding: 7px;
   border: 1px solid gray;
+  color: $brand-primary;
+  &:focus {
+    outline-color: $brand-primary;
+  }
 }
 input[type="submit"] {
   background-color: $brand-primary;
@@ -48,6 +60,12 @@ input[type="submit"] {
   border-radius: 2px;
   border: 1px solid gray;
   padding: 7px;
+  &:focus {
+    outline-color: $brand-primary;
+  }
+  &:hover {
+    background-color: #ff4491;
+  }
 }
 
 .qs-row-1 {
@@ -63,6 +81,9 @@ input[type="submit"] {
   border-radius: 2px;
   width: 100%;
   margin: .3rem auto;
+  &:hover {
+    background-color: #aaa;
+  }
 }
 
 footer {
@@ -78,9 +99,8 @@ footer {
     border-top: 1px solid #000;
     margin-top: 1rem;
     padding: 2.5rem;
-    a {
-      text-transform: uppercase;
-      font-weight: 100;
+    img {
+      max-width: 80%;
     }
   }
 }

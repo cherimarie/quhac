@@ -48,5 +48,8 @@
                     = link_to "Sign Out", destroy_user_session_path, method: :delete
                     = link_to "Admin Dashboard", rails_admin_path if can? :manage, Provider
           .row.gay-city
-            .col-xs-12.text-center
-              %a{:alt => "Gay City", :href => "http://gaycity.org", :target => "_blank"} A project of Gay City
+
+            .col-xs-2.col-xs-offset-5.text-center
+              = link_to root_path do
+                = image_tag("gchp-aptby-black.jpg")
+
