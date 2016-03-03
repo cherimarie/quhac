@@ -1,0 +1,106 @@
+body {
+  max-width: 970px;
+  font-size: 16px;
+  font-family: "open sans";
+}
+
+header img {
+  max-width: 100%;
+  margin-bottom: 0;
+  border-bottom: 2px solid #000;
+}
+
+h2 {
+  margin: 2rem auto;
+  font-size: 3.5rem;
+}
+
+a {
+  color: $brand-primary;
+  &:focus {
+    outline-color: $brand-primary;
+  }
+}
+
+.quick-search {
+  background-color: black;
+  border-radius: 3px;
+  color: #fff;
+  margin-top: -3rem;
+  margin-bottom: 3rem;
+  padding: 3rem 4rem;
+
+  h2 {
+    font-size: 4rem;
+    margin-bottom: 3.5rem;
+    text-shadow: 2px 2px 2px rgba(255,0,101,.5);
+    color: $brand-primary;
+  }
+}
+
+.about {
+  border-radius: 3px;
+  margin-top: -5rem;
+  padding: 3rem;
+}
+
+input#search {
+  width: 78%;
+  border-radius: 2px;
+  padding: 7px;
+  border: 1px solid gray;
+  color: $brand-primary;
+  &:focus {
+    outline-color: $brand-primary;
+  }
+}
+input[type="submit"] {
+  background-color: $brand-primary;
+  float: right;
+  border-radius: 2px;
+  border: 1px solid gray;
+  padding: 7px;
+  &:focus {
+    outline-color: $brand-primary;
+  }
+  &:hover {
+    background-color: #ff4491;
+  }
+}
+
+.qs-row-1 {
+  margin: 1rem auto 3.5rem;
+}
+
+.qs-row-2 {
+  margin-bottom: 2rem;
+}
+.qs-row-2 .btn {
+  color: $brand-primary;
+  background-color: #ddd;
+  border-radius: 2px;
+  width: 100%;
+  margin: .3rem auto;
+  &:hover {
+    background-color: #aaa;
+  }
+}
+
+footer {
+  border-top: 1px solid #000;
+  padding-top: 2rem;
+  ul {
+    list-style-type: none;
+  }
+  a {
+    color: $brand-primary;
+  }
+  .gay-city {
+    border-top: 1px solid #000;
+    margin-top: 1rem;
+    padding: 2.5rem;
+    img {
+      max-width: 80%;
+    }
+  }
+}
