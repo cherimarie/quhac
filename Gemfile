@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.1.5'
+gem 'rails', '4.1.14.2'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass'
@@ -18,10 +18,7 @@ gem 'devise'
 gem 'cancancan', '~> 1.5'
 gem 'rails_admin'
 
-gem 'rails_12factor'
-
-# Installing this globally, not just in production, in attempt to outsmart rack version error
-gem 'unicorn'
+gem 'figaro'
 
 group :test do
   gem 'simplecov', require: false

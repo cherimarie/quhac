@@ -1,14 +1,21 @@
-# .travis.yml
 sudo: false
 language: ruby
 rvm:
-  - 2.2.1
+- 2.2.4
 cache: bundler
-bundler_args: --without production development
+bundler_args: "--without production development"
 script:
-  - RAILS_ENV=test bundle exec rake db:create db:migrate
-  - RAILS_ENV=test bundle exec rake db:schema:load --trace
-  - bundle exec rake
+- RAILS_ENV=test bundle exec rake db:create db:migrate
+- RAILS_ENV=test bundle exec rake db:schema:load --trace
+- bundle exec rake
 before_script:
-  - cp config/database.yml.example config/database.yml
-  - psql -c 'create database quhac_test' -U postgres
+- cp config/database.yml.example config/database.yml
+- psql -c 'create database quhac_test' -U postgres
+env:
+  global:
+  - secure: kRsmEZ10rBWk5nGvEb/tK62BpE4Q6IucwSxkUnAZNE0Vu/V9AlhGsG7kkkyOCzGXy6GrxiMJZmh4epYuJiTDZ5RFqhfPcbjxmG88mKEv+DnH52zKdmyomtbawtWGNhJBIa10yaK2CeuIxMlCcCdzwP6hQsTXgkxXL2uzbMQ0MJ65KyztydxqYJyEmR/6rd9uWRicgAxUOk0G4FHbmrdsWofFykyrriAIc8Hl010vOhdRPvh8tL5pZUmjs9YPCfvCW0e54RwHQpXrQ5ylNt2OH3dfwSoCBexMxjQ9/4/Xj3/LKiwknSoV3wJHinSdHX3MhdmOFSFcllfOESHaxT7Pm0QsYnMfFalTQAwZmunQum1fg2JLNU6tSPsxXyT7WRmnDoWEYVhjs136DJ8sjFsdYNHZYD7lkd3V2o6mcpDDALPKbDJMtBmOgappyKHdT2OmP74az26e3WrUjiYpJNbpzsJMpKfFqluZYDGn7fpyMcvNrPVU7eKqnGI3KPAt+f28qLiIUGsxQosIImp9dYI3g7auDOY08WV0yY0HDyX5nLtL58MZrtpzu4poxnb7POLFLt2vCUYLNRqJCCVRvEjTKZYsb3cQXhc73Mfd3WctkCg47lwXZ0m5Ay6Lr1h1fpgafrI1w4cdSnLsWrbfB2NYOll5JFz8UxM+HMQeBFJTA5U=
+  - secure: L3i+DwAiCadOWsmaGKFSse0Lmya9BAK6XDNhaI46Sg4rlKn1J5uO+hxJXsWRPMDU8UNQ3Xnpx/FFFQqkA9CdvhKJATVphQtZVdpna6rngxT6WFmyEhfSUOgPeYnK08LgD0nA+3kfubQ/c+klvoZMe+1sLBJGb9/azcdfxNhUFIG9EDamAn/4m+rONnNBOgLGY2xbW0V/RLnAElCTujD3WpIGFBAveEXqxZ2x6Rqlm2GV3EPvsfviE3BtkJ4f1IbOI1o0KnOBUwWmg6ptbbwJeSiDRsvyjFNeD14/avDbcCKETOB9jTnHRml7I6WaysuYV6ZlvvN/mFVcB5pKxerYfYAV7nd/N8eJc6G9F2KwIlAM1Zf3k6dYiFiIW6C34E1HX3Pg46V0/sJF4evbRr3cmhtd6RHk7PiEHnoCwGCNDRer21dyRCQPG1ESqYXuz4/1omfirZkbDYKxhrJQRNoY41TYh794VYzU5h9o59xJHEmzPfDC7iQ0kTdkDj4ijPl2v9pWVVNyVVW619nDzpWBI8dFjizK0uu70BLhV3emXO2nXK/g93Pcp4FlCf3FMZSwB9fhFzvLnp9+iSktdt39zdkW9LXMmtuqvtncTg0YcGyusFlYnSiTK2/8NY2qR7rskqUC3zyMBhLQdFbugUl1GQzrIx86cEnHoe5kP12MYMg=
+  - secure: PKZ0P2NiIiiZ84wzav7STwCwSCkgEh1GnmbTVS+c9tElf/9Ip0NE/jjSFCVO22oHkRycCMX9ZOd4BUdffK8jQGUS7N3VuXs8pwvco6R+yYFIOmzUfpmGFAwT7Y5SF07WwXZ7BvzfFZd2jNo+YgFi7ArTSqBMbnq/8SJF0bPCG7RGglO+AngiTOsManAU4PVZqBAxWVNOd0toVeCuDjzT1yQxLJZb/50wDNnZ+IQf/EOns15pD9Y4lOs7Tx7eLt1ygM/hpZunuhCGr1RiFw2JSNW9GTSKiOH6GpMqceKQMau2Ek5qAjr8OUJWbulFWWuhTMUIleEwF37jxjEDoQRrkP1PB45xjFYGORDc5L+GDUnLzlYsM6lDtZcfLmepcSgAmqtHeriTmUnB4YJyxc88RP1dj5kGRta9TFREHkaVRodf6ALeYhXhFlv4L85z5iKO/j9ilEN37LzDCFFNFbAfUntrXWRbxwQRVoyE+v8nW+BbHlD4+CjLdKMIRnjDJpwLswFyPLdHsqwwCXyz/+PfC9tHG6FFz/p7svnc7tcWGPODiX5/Mb4tIfEfgp/3P/5hnTDxfJiPQXue3eVXsYojUmZd9pF/gZFMzAwH43Vs//9o88SkwU8nreHQDgn1U0bNUz5bOAVGxmmx2bZe6nE6H3xhd7Lv55BhiXrxPlEOjdY=
+
+after_success:
+  - ssh $QUHAC_USER@$QUHAC_HOST -o StrictHostKeyChecking=no bash $QUHAC_PATH/deploy_app.sh
