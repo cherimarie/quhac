@@ -11,7 +11,8 @@ RSpec.describe Insurer, type: :model do
   describe "associations" do
     before do
       @ins = Insurer.create(name: "Blue Cross")
-      @pro = Provider.create(name: "Dr. Feelgood", city: "Funkytown")
+      clinic = Clinic.create(street_address: "123 Pine St", city: "Seattle", zip: "98122", phone: "206-206-1206")
+      @pro = Provider.create(name: "Dr. Feelgood", clinic_id: clinic.id)
       @prov_ins = ProviderInsurer.create(provider_id: @pro.id, insurer_id: @ins.id)
     end
     it "has many provider_insurers" do

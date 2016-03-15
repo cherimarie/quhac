@@ -1,5 +1,8 @@
+clinic = Clinic.create(name: "Test Clinic", street_address: "123 Pine St", city: "Seattle", zip: "98122", phone: "206-206-1206", website: "coolclinic.com")
+puts "Created 1 clinic"
+
 10.times do |i|
-  Provider.create(name: "Dr. Feelgood the #{i}th", city: "Seattle")
+  Provider.create(name: "Dr. Feelgood the #{i}th", clinic_id: clinic.id)
 end
 puts "Created 10 providers"
 
