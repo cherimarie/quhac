@@ -7,6 +7,8 @@ class Provider < ActiveRecord::Base
 
   delegate :street_address, :city, :zip, :phone, :website, to: :clinic
 
+  self.inheritance_column = nil
+
   def self.search(search)
     search_length = search.split.length
     where([(['lower(name) LIKE lower(?)'] * search_length).join(' AND ')] + search.split.map { |search| "%#{search}%" })
