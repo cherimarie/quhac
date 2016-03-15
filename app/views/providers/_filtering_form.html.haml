@@ -1,0 +1,61 @@
+%form
+  %h2 Filter Providers
+  %fieldset
+    %label Gender Identity
+    %select
+      %option These are
+      %option form checkboxes
+  %fieldset
+    %label Orientation
+    %select
+      %option These are
+      %option form checkboxes
+  %fieldset
+    %label Insurance Accepted
+    - Insurer.all.each do |ins|
+      %input{type: 'checkbox'}= ins.name
+  %fieldset
+    %label Expertise
+    %select
+      %option These are
+      %option form checkboxes
+  %fieldset
+    %label Specialization
+    %select
+      %option These are
+      %option form checkboxes
+  %fieldset
+    %label Type
+    %select
+      %option These are
+      %option form checkboxes
+  %fieldset
+    %label Comprehensive Intake
+    %input{type: 'checkbox', value: true}
+  %fieldset
+    %label Use Patients' Preferred Name in Charts
+    %input{type: 'checkbox', value: true}
+  %fieldset
+    %label Have Gender Neutral Restrooms
+    %input{type: 'checkbox', value: true}
+  %fieldset
+    %label Staff Fully Trained in LGBTQ Issues
+    %input{type: 'checkbox', value: true}
+  %fieldset
+    %label Staff Fully Trained in Racial & Cultural Issues
+    %input{type: 'checkbox', value: true}
+  %fieldset
+    %label Are Accepting New Patients
+    %input{type: 'checkbox', value: true}
+  %fieldset
+    %label Sort By
+    %select
+      %option{value: 'name'} Name
+      %option{value: 'type'} Type
+      %option{value: 'city'} City
+      %option{value: 'zip'} Zip Code
+
+%form
+  %label Search
+  %input
+  %input{type: 'submit'}
