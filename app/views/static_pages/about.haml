@@ -1,20 +1,20 @@
 .row
   .col-xs-12
-    .quick-search.col-xs-5
+    .quick-search.col-xs-12.col-sm-5
       %h2.text-center Quick Search
-      .qs-row-1
+      .quick-row-1
         = form_tag "/providers", method: "get" do
           = label_tag "Search for Providers"
           = text_field_tag :search, params[:search], placeholder:"sparkle"
           = submit_tag "search", name: nil
-      .qs-row-2
+      .quick-row-2
         = link_to providers_path do
           .btn.btn-link Browse All Providers
         = link_to advanced_search_path do
           .btn.btn-link Advanced Search
 
-    .about.col-xs-7
-      %h2.text-center About
+    .about.col-xs-12.col-sm-7.text-center
+      %h2 About
       %p The Queer Healthcare Accountability Coalition (QuHAC) is a group of lesbian, gay, bisexual, trangender, queer/questioning (LGBTQ) and allied Seattle residents working together to ensure that our community has access to high quality, competent healthcare across Seattle. We believe that by working together across identities and neighborhoods, we can build a centralized resource that will be widely available and will link LGBTQ city residents to the healthcare services they need, from providers they can trust.
       %p
         We are a project housed under
