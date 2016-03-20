@@ -18,13 +18,15 @@
   %fieldset
     %label{for: 'expertise'} Expertise
     %select{id: 'expertise', name: 'expertise'}
-      %option These are
-      %option form checkboxes
+      %option
+      - expertises.each do |exp|
+        %option{value: "#{exp}"}= exp
   %fieldset
     %label{for: 'specialization'} Specialization
     %select{id: 'specialization', name: 'specialization'}
-      %option These are
-      %option form checkboxes
+      %option
+      - specializations.each do |spec|
+        %option{value: "#{spec}"}= spec
   %fieldset
     %label{for: 'type'} Type
     %select{id: 'type', name: 'type'}
