@@ -1,16 +1,44 @@
-%h1 All Providers
+.row
+  .col-xs-10.col-xs-offset-1
+    %h1 Provider Search Results
+    %h3.well.well-lg Search Form
 
-%table.tablesorter
-  %thead
-    %th Name
-    %th City
-    %th Insurers
-  %tbody
+.row
+  .col-xs-10.col-xs-offset-1
     - @providers.each do |provider|
-      %tr
-        %td= link_to provider.name, provider_path(provider.id)
-        %td= provider.city
-        %td= provider.insurers.map { |ins| ins.name } .join(", ")
+      .row.card
+        .col-xs-2
+          = image_tag("QuHac-logo.png")
+        .col-xs-10.card-fill
+          .row
+            .col-xs-12.provider-index-head
+              %h3= link_to provider.name, provider_path(provider.id)
+              %p.title Massage Therapist
+          .row.test
+            .col-xs-5
+              .address
+                %p Address
+                %p= provider.city
+                %p (206) 555-1212
+
+            .col-xs-6
+              .row
+                .col-xs-4
+                  %p Medicaid?
+                .col-xs-2
+                  %p y/n
+                .col-xs-2.col-xs-offset-2
+                  %p Molina
+              .row
+                .col-xs-4
+                  %p Medicare?
+                .col-xs-2
+                  %p y/n
+              .row
+                .col-xs-12
+                  %p= provider.insurers.map { |ins| ins.name } .join(", ")
+
+
 
 = link_to providers_path do
   %button Clear Search
