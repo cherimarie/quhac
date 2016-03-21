@@ -1,10 +1,16 @@
-%h1= @provider.name
+.row
+  .col-xs-12
+    %h1= @provider.name
 
-%h2= @provider.city
+    %h2= @provider.city
 
-%p This provider accepts the following insurances:
-%ul
-  - @provider.insurers.each do |insurer|
-    %li= insurer.name
+.row
+  .col-xs-0.col-sm-2
+  .col-xs-12.col-sm-8
+    %p This provider accepts the following insurances:
+    %ul
+      - @provider.insurers.each do |insurer|
+        %li= insurer.name
 
-= link_to "Back", :back
+    = link_to "Back", :back
+  .col-xs-0.col-sm-2
