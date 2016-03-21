@@ -1,29 +1,29 @@
 .row
-  .col-xs-12
-    %h1 Contact QuHac
+  .col-xs-12.col-sm-8.col-sm-offset-2.contact
+    .row
+      .col-xs-12
+        %h1 Contact QuHac
 
-    %p Use the form below to reach the QuHac team, or send an email to quhac@gaycity.org
+        %p Use the form below to reach the QuHac team, or send an email to quhac@gaycity.org
 
-.row
-  .col-xs-0.col-sm-2
-  .col-xs-12.col-sm-8
-    =form_tag("/submit_contact", method: "post") do
-      %fieldset
-        %label{for: "name"} Your Name
-        %input{type: "text", name: "name"}
+    .row
+      .col-xs-12
+        =form_tag("/submit_contact", method: "post") do
+          %fieldset
+            %label{for: "name"} Your Name
+            %input{type: "text", name: "name", placeholder:"sparkle"}
 
-      %fieldset
-        %label{for: "email"}
-          Your Email Address
-          %small if you'd like a reply
-        %input{type: "email", name: "email"}
+          %fieldset
+            %label{for: "email"}
+              Your Email Address
+              %small if you'd like a reply
+            %input{type: "email", name: "email", placeholder:"sparkle"}
 
-      %fieldset
-        %label{for: "comments"} Comments
-        %input{type: "text", name: "comments", required: "required"}
+          %fieldset.comments
+            %label{for: "comments"} Comments
+            %input{type: "text", name: "comments", required: "required", placeholder:"sparkle"}
 
-      %input{type: "hidden", name: "robots_are_dumb"}
+          %input{type: "hidden", name: "robots_are_dumb"}
 
-      %fieldset
-        %input{type: "submit"}
-  .col-xs-0.col-sm-2
+          %fieldset
+            %input{type: "submit"}
