@@ -1,7 +1,6 @@
 .row
-  .col-xs-10.col-xs-offset-1
-    %h1 Provider Search Results
-    %h3.well.well-lg Search Form
+  .col-xs-12.results-head
+    %h1.col-xs-10.col-xs-offset-1 Provider Search Results
 
 .row
   .col-xs-10.col-xs-offset-1
@@ -12,7 +11,7 @@
         .col-xs-10.card-fill
           .row
             .col-xs-12.provider-index-head
-              %h3= link_to provider.name, provider_path(provider.id)
+              %h2= link_to provider.name, provider_path(provider.id)
               %p.title Massage Therapist
           .row.test
             .col-xs-5
@@ -41,4 +40,4 @@
 
 
 = link_to providers_path do
-  %button Clear Search
+  %button.clr-search.center-block Clear Search

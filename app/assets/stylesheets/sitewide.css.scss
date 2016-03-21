@@ -17,9 +17,8 @@ h2 {
 
 a {
   color: $brand-primary;
-  &:focus {
-    outline-color: $brand-primary;
-  }
+  text-decoration: underline;
+  &:focus {outline-color: $brand-primary;}
 }
 
 .quick-search {
@@ -54,7 +53,8 @@ input#search {
     outline-color: $brand-primary;
   }
 }
-input[type="submit"] {
+input[type="submit"],
+.clr-search {
   background-color: $brand-primary;
   float: right;
   border-radius: 2px;

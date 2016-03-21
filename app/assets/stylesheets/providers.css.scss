@@ -1,20 +1,41 @@
 p {margin: 0}
 
+.results-head {
+  max-width: 970px;
+  background-color: $black;
+  color: $white;
+  padding: 4rem 0;
+  margin: -5.5rem 0 3rem 1.5rem;
+  border-top: 2px solid $white;
+  h1 {font-size: 4.5rem; font-weight: normal; padding-left: 0;}
+}
+
 .card {
   margin-bottom: 3rem;
   padding: 4rem 0;
   background-color: whitesmoke;
-  border-left: 12px solid $brand-primary;
+  border-left: 10px solid $brand-primary;
   img {
-    max-width: 125px;
-    margin-top: 1rem;
+    max-width: 11rem;
+    margin-top: -1.5rem;
+    @media (max-width: 992px) {max-width: 9rem;}
+    @media (max-width: 768px) {max-width: 7rem;}
+    @media (max-width: 650px) {display: none;}
   }
 }
 
 .provider-index-head {
   margin-bottom: 3rem;
-  h3 {margin: 0;}
+  h2 {margin: 0; font-size: 2.4rem;}
   p {font-size: 1.8rem;}
 }
 
-.card-fill {padding-left: 2.5rem;}
+.card-fill {margin-left: -10px;}
+
+.clr-search {
+  float: none;
+  margin: 0 auto 3rem;
+  padding: 1rem 3rem;
+  color: white;
+  &:hover {text-decoration: none;}
+}
