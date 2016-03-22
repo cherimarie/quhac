@@ -11,15 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209023649) do
+ActiveRecord::Schema.define(version: 20160313201315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "clinics", force: true do |t|
+    t.string "name"
+    t.string "street_address", null: false
+    t.string "city",           null: false
+    t.string "zip",            null: false
+    t.string "phone",          null: false
+    t.string "website"
+  end
+
   create_table "insurers", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_medicaid"
   end
 
   create_table "provider_insurers", force: true do |t|
@@ -30,10 +40,29 @@ ActiveRecord::Schema.define(version: 20160209023649) do
   end
 
   create_table "providers", force: true do |t|
-    t.string   "name",       null: false
-    t.string   "city",       null: false
+    t.string   "name",                      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "clinic_id",                 null: false
+    t.string   "email"
+    t.string   "type"
+    t.string   "population_expertise"
+    t.string   "specialization"
+    t.string   "gender_id"
+    t.string   "orientation"
+    t.boolean  "comprehensive_intake"
+    t.boolean  "use_pref_name"
+    t.string   "trans_standard_of_care"
+    t.boolean  "gender_neutral_rr"
+    t.boolean  "lgbtq_trained"
+    t.text     "lgbtq_training_details"
+    t.boolean  "cultural_trained"
+    t.text     "cultural_training_details"
+    t.text     "lgbq_incl_strategy"
+    t.text     "trans_incl_strategy"
+    t.boolean  "new_clients"
+    t.text     "community_relationship"
+    t.text     "additional"
   end
 
   create_table "users", force: true do |t|

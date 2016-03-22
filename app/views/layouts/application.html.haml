@@ -21,14 +21,15 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body.center-block
-    .row
-      %header.col-xs-12
-        = link_to root_path do
-          = image_tag("quhac-facebookheader-pink.jpg")
-          %h1.sr-only.text-center
-            Queer Healthcare Accountability Coalition
-        %p.notice= notice
-        %p.alert= alert
+    .container-fluid
+      .row
+        %header
+          = link_to root_path do
+            = image_tag("quhac-facebookheader-pink.jpg")
+            %h1.sr-only.text-center
+              Queer Healthcare Accountability Coalition
+          %p.notice= notice
+          %p.alert= alert
 
     = yield
 
@@ -49,7 +50,7 @@
                     = link_to "Admin Dashboard", rails_admin_path if can? :manage, Provider
           .row.gay-city
 
-            .col-xs-2.col-xs-offset-5.text-center
+            .col-xs-4.col-xs-offset-4.col-sm-2.col-sm-offset-5.text-center
               = link_to root_path do
                 = image_tag("gchp-aptby-black.jpg")
 

@@ -1,5 +1,4 @@
 body {
-  max-width: 970px;
   font-size: 16px;
   font-family: "open sans";
 }
@@ -25,12 +24,17 @@ a {
   background-color: black;
   border-radius: 3px;
   color: #fff;
-  margin-top: -3rem;
-  margin-bottom: 3rem;
+  margin: -3rem 0 3rem 1rem;
   padding: 3rem 4rem;
+  @media (max-width: 992px) {
+    padding: 2rem 2.5rem;
+    margin-left: 0rem;
+    border-radius: 0px;
+  }
 
   h2 {
     font-size: 4rem;
+      @media (max-width: 992px) {font-size: 3.5rem;}
     margin-bottom: 3.5rem;
     text-shadow: 2px 2px 2px rgba(255,0,101,.5);
     color: $brand-primary;
@@ -39,20 +43,26 @@ a {
 
 .about {
   border-radius: 3px;
-  margin-top: -5rem;
+  margin-top: -6rem;
   padding: 3rem;
+    @media (min-width: 992px) {margin-left: -1rem;}
+    @media (max-width: 992px) {margin-left: 0;}
+  @media (max-width: 992px) {
+    h2 {margin-bottom: 1.5rem;}
+    p {padding-bottom: 1rem;}
+  }
 }
 
 input#search {
   width: 78%;
+    @media (max-width: 992px) {width: 100%;}
   border-radius: 2px;
   padding: 7px;
   border: 1px solid gray;
   color: $brand-primary;
-  &:focus {
-    outline-color: $brand-primary;
-  }
+  &:focus {outline-color: $brand-primary;}
 }
+
 input[type="submit"],
 .clr-search {
   background-color: $brand-primary;
@@ -60,27 +70,27 @@ input[type="submit"],
   border-radius: 2px;
   border: 1px solid gray;
   padding: 7px;
-  &:focus {
-    outline-color: $brand-primary;
-  }
+  &:focus {outline-color: $brand-primary;}
   &:hover {
     background-color: #ff4491;
   }
+  @media (max-width: 992px) {width: 100%; margin: 3rem 0 .1rem}
 }
 
-.qs-row-1 {
+.quick-row-1 {
   margin: 1rem auto 3.5rem;
 }
 
-.qs-row-2 {
+.quick-row-2 {
   margin-bottom: 2rem;
 }
-.qs-row-2 .btn {
+.quick-row-2 .btn {
   color: $brand-primary;
   background-color: #ddd;
   border-radius: 2px;
   width: 100%;
-  margin: .3rem auto;
+  margin: .3rem 0;
+    @media (max-width: 992px) {margin: .1rem 0;}
   &:hover {
     background-color: #aaa;
   }
@@ -100,7 +110,7 @@ footer {
     margin-top: 1rem;
     padding: 2.5rem;
     img {
-      max-width: 80%;
+      max-width: 100%;
     }
   }
 }
