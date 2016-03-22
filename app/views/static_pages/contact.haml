@@ -1,23 +1,27 @@
-%h1 Contact QuHac
+.row
+  .col-xs-12
+    %h1 Contact QuHac
 
-%p Use the form below to reach the QuHac team, or send an email to quhac@gaycity.org
+    %p Use the form below to reach the QuHac team, or send an email to quhac@gaycity.org
 
-=form_tag("/submit_contact", method: "post") do
-  %fieldset
-    %label{for: "name"} Your Name
-    %input{type: "text", name: "name"}
+.row
+  .col-xs-12.col-sm-8
+    =form_tag("/submit_contact", method: "post") do
+      %fieldset
+        %label{for: "name"} Your Name
+        %input{type: "text", name: "name"}
 
-  %fieldset
-    %label{for: "email"}
-      Your Email Address
-      %small if you'd like a reply
-    %input{type: "email", name: "email"}
+      %fieldset
+        %label{for: "email"}
+          Your Email Address
+          %small if you'd like a reply
+        %input{type: "email", name: "email"}
 
-  %fieldset
-    %label{for: "comments"} Comments
-    %input{type: "text", name: "comments", required: "required"}
+      %fieldset
+        %label{for: "comments"} Comments
+        %input{type: "text", name: "comments", required: "required"}
 
-  %input{type: "hidden", name: "robots_are_dumb"}
+      %input{type: "hidden", name: "robots_are_dumb"}
 
-  %fieldset
-    %input{type: "submit"}
+      %fieldset
+        %input{type: "submit"}
