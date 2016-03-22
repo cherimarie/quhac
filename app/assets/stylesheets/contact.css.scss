@@ -13,7 +13,8 @@
   p, label {
     color: $brand-primary;
   }
-  input[type="text"], input[type="email"] {width: 80%;
+  input[type="text"], input[type="email"] {
+    width: 100%;
     padding: .5rem 0;
     &:focus {outline-color: $brand-primary;}
   }
