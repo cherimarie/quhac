@@ -13,20 +13,20 @@
             .col-xs-12.provider-index-head
               %h2= link_to provider.name, provider_path(provider.id)
               %p.title Massage Therapist
-          .row.test
-            .col-xs-5
+          .row
+            .col-xs-12.col-sm-5
               .address
-                %p Address
+                %p.hidden-xs Address
                 %p= provider.city
                 %p (206) 555-1212
 
-            .col-xs-6
+            .col-xs-12.col-sm-6
               .row
                 .col-xs-4
                   %p Medicaid?
                 .col-xs-2
                   %p y/n
-                .col-xs-2.col-xs-offset-2
+                .col-xs-2.col-xs-offset-0.col-sm-offset-2
                   %p Molina
               .row
                 .col-xs-4
@@ -35,6 +35,7 @@
                   %p y/n
               .row
                 .col-xs-12
+                  Insurance accepted:
                   %p= provider.insurers.map { |ins| ins.name } .join(", ")
 
 
