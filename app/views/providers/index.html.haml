@@ -3,8 +3,7 @@
     %h1 All Providers
 
 .row
-  .col-xs-0.col-sm-2
-  .col-xs-12.col-sm-8
+  .col-xs-12.col-sm-8.col-sm-offset-2
     %table.tablesorter
       %thead
         %th Name
@@ -16,7 +15,6 @@
             %td= link_to provider.name, provider_path(provider.id)
             %td= provider.city
             %td= provider.insurers.map { |ins| ins.name } .join(", ")
-  .col-xs-0.col-sm-2
 
 .row
   .col-xs-12
