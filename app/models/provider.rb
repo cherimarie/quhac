@@ -13,4 +13,17 @@ class Provider < ActiveRecord::Base
     search_length = search.split.length
     where([(['lower(name) LIKE lower(?)'] * search_length).join(' AND ')] + search.split.map { |search| "%#{search}%" })
   end
+
+  def accepts_medicaid
+    ins = insurers.map{|i| i.name}
+    medicaid = ['Molina', 'Coordinated Care', 'Amerigroup']
+
+    return "yes" if (ins & medicaid).present?
+    "no"
+  end
+
+  def accepts_medicare
+    return "yes" if insurers.map{|i| i.name}.include? 'Medicare'
+    "no"
+  end
 end
