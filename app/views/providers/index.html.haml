@@ -16,23 +16,23 @@
           .row
             .col-xs-12.col-sm-5
               .address
-                %p.hidden-xs Address
+                %p.hidden-xs= provider.street_address
                 %p= provider.city
-                %p (206) 555-1212
+                %p= provider.phone
 
             .col-xs-12.col-sm-6
               .row
                 .col-xs-4
                   %p Medicaid?
                 .col-xs-2
-                  %p y/n
+                  %p= provider.accepts_medicaid
                 .col-xs-2.col-xs-offset-0.col-sm-offset-2
                   %p Molina
               .row
                 .col-xs-4
                   %p Medicare?
                 .col-xs-2
-                  %p y/n
+                  %p= provider.accepts_medicare
               .row
                 .col-xs-12
                   Insurance accepted:
