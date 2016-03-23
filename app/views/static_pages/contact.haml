@@ -11,17 +11,17 @@
         =form_tag("/submit_contact", method: "post") do
           %fieldset
             %label{for: "name"} Your Name
-            %input{type: "text", name: "name", placeholder:"sparkle"}
+            %input{type: "text", name: "name", placeholder:"Name"}
 
           %fieldset
             %label{for: "email"}
               Your Email Address
               %small if you'd like a reply
-            %input{type: "email", name: "email", placeholder:"sparkle"}
+            %input{type: "email", name: "email", placeholder:"Email Address"}
 
           %fieldset.comments
             %label{for: "comments"} Comments
-            %input{type: "text", name: "comments", required: "required", placeholder:"sparkle"}
+            %input{type: "text", name: "comments", required: "required", placeholder:"Comments"}
 
           %input{type: "hidden", name: "robots_are_dumb"}
 
