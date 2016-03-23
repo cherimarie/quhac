@@ -1,15 +1,17 @@
-%form
+=form_tag('/filter', method: 'get') do
   %h3 Filter Providers
   %fieldset
     %label{for: 'gender-id'} Gender Identity
     %select{id: 'gender-id', name: 'gender-id'}
-      %option These are
-      %option form checkboxes
+      %option
+      - gender_identities.each do |exp|
+        %option{value: "#{exp}"}= exp
   %fieldset
     %label{for: 'orientation'} Orientation
     %select{id: 'orientation', name: 'orientation'}
-      %option These are
-      %option form checkboxes
+      %option
+      - orientations.each do |exp|
+        %option{value: "#{exp}"}= exp
   %fieldset
     %legend Insurances Accepted
     - Insurer.all.each do |ins|
@@ -30,8 +32,9 @@
   %fieldset
     %label{for: 'type'} Type
     %select{id: 'type', name: 'type'}
-      %option These are
-      %option form checkboxes
+      %option
+      - prov_types.each do |exp|
+        %option{value: "#{exp}"}= exp
   %fieldset
     %label{for: 'comp-intake'} Comprehensive Intake
     %input{type: 'checkbox', value: 'comp-intake', id: 'comp-intake', name: 'comp-intake'}
@@ -62,8 +65,8 @@
   %fieldset
     %input{type: 'submit', name: 'submit-filter', value: 'Filter Providers'}
 
-%form
-  %h3 Search Providers
-  %label{for: 'search'} Search
-  %input{id: 'search', name: 'search'}
-  %input{type: 'submit', name: 'submit-search', value: 'Submit Search'}
+/ %form
+/   %h3 Search Providers
+/   %label{for: 'search'} Search
+/   %input{id: 'search', name: 'search'}
+/   %input{type: 'submit', name: 'submit-search', value: 'Submit Search'}
