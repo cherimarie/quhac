@@ -16,6 +16,7 @@ h2 {
 
 a {
   color: $brand-primary;
+  text-decoration: underline;
   &:focus {outline-color: $brand-primary;}
 }
 
@@ -62,18 +63,15 @@ input#search {
   &:focus {outline-color: $brand-primary;}
 }
 
-input[type="submit"] {
+.base-submit {
+  @media (max-width: 992px) {width: 100%; margin: 3rem 0 .1rem}
   background-color: $brand-primary;
   float: right;
   border-radius: 2px;
   border: 1px solid gray;
   padding: 7px;
   &:focus {outline-color: $brand-primary;}
-  &:hover {
-    background-color: #ff4491;
-    text-decoration: underline;
-  }
-  @media (max-width: 992px) {width: 100%; margin: 3rem 0 .1rem}
+  &:hover {background-color: #ff4491; text-decoration: underline;}
 }
 
 .quick-row-1 {
