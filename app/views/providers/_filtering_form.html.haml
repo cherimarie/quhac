@@ -1,69 +1,128 @@
 =form_tag('/providers', method: 'get') do
-  %h3 Filter Providers
-  %fieldset
-    %label{for: 'gender-id'} Gender Identity
-    %select{id: 'gender-id', name: 'gender-id'}
-      %option
-      - gender_identities.each do |exp|
-        %option{value: "#{exp}"}= exp
-  %fieldset
-    %label{for: 'orientation'} Orientation
-    %select{id: 'orientation', name: 'orientation'}
-      %option
-      - orientations.each do |exp|
-        %option{value: "#{exp}"}= exp
-  %fieldset
-    %legend Insurances Accepted
-    - Insurer.all.each do |ins|
-      %label{for: "ins-#{ins.id}"}=ins.name
-      %input{type: 'checkbox', id: "ins-#{ins.id}", value: "ins-#{ins.id}", name: "ins-#{ins.id}"}
-  %fieldset
-    %label{for: 'expertise'} Expertise
-    %select{id: 'expertise', name: 'expertise'}
-      %option
-      - expertises.each do |exp|
-        %option{value: "#{exp}"}= exp
-  %fieldset
-    %label{for: 'specialization'} Specialization
-    %select{id: 'specialization', name: 'specialization'}
-      %option
-      - specializations.each do |spec|
-        %option{value: "#{spec}"}= spec
-  %fieldset
-    %label{for: 'type'} Type
-    %select{id: 'type', name: 'type'}
-      %option
-      - prov_types.each do |exp|
-        %option{value: "#{exp}"}= exp
-  %fieldset
-    %label{for: 'comp-intake'} Comprehensive Intake
-    %input{type: 'checkbox', value: 'comp-intake', id: 'comp-intake', name: 'comp-intake'}
-  %fieldset
-    %label{for: 'pref-name'} Use Patients' Preferred Name in Charts
-    %input{type: 'checkbox', value: 'pref-name', id: 'pref-name', name: 'pref-name'}
-  %fieldset
-    %label{for: 'gend-neut-rr'} Have Gender Neutral Restrooms
-    %input{type: 'checkbox', value: 'gend-neut-rr', id: 'gend-neut-rr', name: 'gend-neut-rr'}
-  %fieldset
-    %label{for: 'lgbtq-trained'} Staff Fully Trained in LGBTQ Issues
-    %input{type: 'checkbox', value: 'lgbtq-trained', id: 'lgbtq-trained', name: 'lgbtq-trained'}
-  %fieldset
-    %label{for: 'cultu-tarined'} Staff Fully Trained in Racial & Cultural Issues
-    %input{type: 'checkbox', value: 'cultu-tarined', id: 'cultu-tarined', name: 'cultu-trained'}
-  %fieldset
-    %label{for: 'accepting'} Are Accepting New Patients
-    %input{type: 'checkbox', value: 'accepting', id: 'accepting', name: 'accepting'}
-  %fieldset
-    %label{for: 'sort-by'} Sort By
-    %select{id: 'sort-by', name: 'sort-by'}
-      %option{value: 'name'} Name
-      %option{value: 'type'} Type
-      %option{value: 'city'} City
-      %option{value: 'zip'} Zip Code
-  %fieldset
-    %input{type:'reset', name: 'reset', value: 'Reset Filters'}
-  %fieldset
-    %input{type: 'submit', name: 'submit-filter', value: 'Filter Providers'}
+  %h2 Filter Providers
+
+.row.filter-big-row
+  .col-xs-12
+    .row
+      .col-xs-12
+        %h3 Insurance
+    .row
+      .col-xs-10.col-xs-offset-1
+        %fieldset
+          - Insurer.all.each do |ins|
+            %label{for: "ins-#{ins.id}"}=ins.name
+            %input{type: 'checkbox', id: "ins-#{ins.id}", value: "ins-#{ins.id}", name: "ins-#{ins.id}"}
+
+
+.row.filter-big-row
+  .col-xs-12
+    .row
+      .col-xs-12
+        %h3 Provider Info
+    .row
+      .col-xs-4.col-xs-offset-1
+        %fieldset
+          %label{for: 'type'} Provider Type
+          %select{id: 'type', name: 'type'}
+            %option
+            - prov_types.each do |exp|
+              %option{value: "#{exp}"}= exp
+      .col-xs-4
+        %fieldset
+          %label{for: 'accepting'} Accepting New Patients
+          %input{type: 'checkbox', value: 'accepting', id: 'accepting', name: 'accepting'}
+    .row
+      .col-xs-4.col-xs-offset-1
+        %fieldset
+          %label{for: 'expertise'} Expertise
+          %select{id: 'expertise', name: 'expertise'}
+            %option
+            - expertises.each do |exp|
+              %option{value: "#{exp}"}= exp
+      .col-xs-4
+        %fieldset
+          %label{for: 'specialization'} Specialization
+          %select{id: 'specialization', name: 'specialization'}
+            %option
+            - specializations.each do |spec|
+              %option{value: "#{spec}"}= spec
+
+
+.row.filter-big-row
+  .col-xs-12
+    .row
+      .col-xs-12
+        %h3 Provider Identity
+    .row
+      .col-xs-4.col-xs-offset-1
+        %fieldset
+          %label{for: 'gender-id'} Gender Identity
+          %select{id: 'gender-id', name: 'gender-id'}
+            %option
+            - gender_identities.each do |exp|
+              %option{value: "#{exp}"}= exp
+      .col-xs-4
+        %fieldset
+          %label{for: 'orientation'} Orientation
+          %select{id: 'orientation', name: 'orientation'}
+            %option
+            - orientations.each do |exp|
+              %option{value: "#{exp}"}= exp
+
+.row.filter-big-row
+  .col-xs-12
+    .row
+      .col-xs-12
+        %h3 Training and Practices
+    .row
+      .col-xs-10.col-xs-offset-1
+        %fieldset
+          %label{for: 'pref-name'} Patients' Preferred Name in Charts
+          %input{type: 'checkbox', value: 'pref-name', id: 'pref-name', name: 'pref-name'}
+      .col-xs-10.col-xs-offset-1
+        %fieldset
+          %label{for: 'gend-neut-rr'} Gender Neutral Restrooms
+          %input{type: 'checkbox', value: 'gend-neut-rr', id: 'gend-neut-rr', name: 'gend-neut-rr'}
+    .row
+      .col-xs-10.col-xs-offset-1
+        %fieldset
+          %label{for: 'comp-intake'} Comprehensive Intake
+          %input{type: 'checkbox', value: 'comp-intake', id: 'comp-intake', name: 'comp-intake'}
+    .row
+      .col-xs-10.col-xs-offset-1
+        %fieldset
+          %label{for: 'lgbtq-trained'} Staff Fully Trained in LGBTQ Issues
+          %input{type: 'checkbox', value: 'lgbtq-trained', id: 'lgbtq-trained', name: 'lgbtq-trained'}
+    .row
+      .col-xs-10.col-xs-offset-1
+        %fieldset
+          %label{for: 'cultu-tarined'} Staff Fully Trained in Racial & Cultural Issues
+          %input{type: 'checkbox', value: 'cultu-tarined', id: 'cultu-tarined', name: 'cultu-trained'}
+
+
+.row.filter-big-row
+  .col-xs-12
+    .row
+      .col-xs-12
+        %h3 Sort Results
+    .row
+      .col-xs-10.col-xs-offset-1
+        %fieldset
+          %label{for: 'sort-by'} Sort Results By
+          %select{id: 'sort-by', name: 'sort-by'}
+            %option{value: 'name'} Name
+            %option{value: 'type'} Type
+            %option{value: 'city'} City
+            %option{value: 'zip'} Zip Code
+
+.row.filter-big-row
+  .col-xs-12.btn-block
+    %fieldset
+      %input{type:'reset', name: 'reset', value: 'Reset Filters'}
+    %fieldset
+      %input{type: 'submit', name: 'submit-filter', value: 'Filter Providers'}
+    = link_to providers_path do
+      %button Browse All Providers
 
 / %form
 /   %h3 Search Providers
