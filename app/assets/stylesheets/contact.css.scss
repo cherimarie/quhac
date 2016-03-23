@@ -1,0 +1,31 @@
+.contact {
+  background-color: $black;
+  border-radius: 3px;
+  color: #fff;
+  padding: 3rem 4rem;
+  margin-bottom: 6.2rem;
+  @media (max-width: 992px) {
+    padding: 2rem 2.5rem;
+    border-radius: 0px;
+  }
+  p {margin-bottom: 5rem;}
+
+  p, label {
+    color: $brand-primary;
+  }
+  input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: .5rem 0;
+    &:focus {outline-color: $brand-primary;}
+  }
+  input {
+    display: block;
+    margin-bottom: 3rem;
+    color: $brand-primary;
+  }
+  input[type="submit"] {
+    color:$white;
+    padding: .7rem 4rem;
+    float: left;
+    margin-top: 4rem;}
+}
