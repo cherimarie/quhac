@@ -1,16 +1,22 @@
-%h1 All Providers
-= render 'filtering_form'
-%table.tablesorter
-  %thead
-    %th Name
-    %th City
-    %th Insurers
-  %tbody
-    - @providers.each do |provider|
-      %tr
-        %td= link_to provider.name, provider_path(provider.id)
-        %td= provider.city
-        %td= provider.insurers.map { |ins| ins.name } .join(", ")
+.row
+  .col-xs-12
+    %h1 All Providers
 
-= link_to providers_path do
-  %button Clear Search
+.row
+  .col-xs-12.col-sm-8.col-sm-offset-2
+    %table.tablesorter
+      %thead
+        %th Name
+        %th City
+        %th Insurers
+      %tbody
+        - @providers.each do |provider|
+          %tr
+            %td= link_to provider.name, provider_path(provider.id)
+            %td= provider.city
+            %td= provider.insurers.map { |ins| ins.name } .join(", ")
+
+.row
+  .col-xs-12
+    = link_to providers_path do
+      %button Clear Search
