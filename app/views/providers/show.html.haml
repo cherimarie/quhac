@@ -1,20 +1,11 @@
 .row
-  .col-xs-12
+  .col-xs-11.col-xs-offset-1
     %h1= @provider.name
-    %p.hidden-xs= @provider.street_address
+    %p= @provider.street_address
     %p= @provider.city
     %p= @provider.type
     %p= @provider.clinic
     %p= @provider.email
-
-.row
-  .col-xs-12.col-sm-8.col-sm-offset-2
-    %p This provider accepts the following insurances:
-    %ul
-      - @provider.insurers.each do |insurer|
-        %li= insurer.name
-
-    = link_to "Back", :back
 
 %hr
   .row.filter-big-row
@@ -22,48 +13,48 @@
       .row
         .col-xs-12
           %h3 Insurance
-  .row
-    .col-xs-12.col-sm-8.col-sm-offset-2
-      %p This provider accepts the following insurances:
-      %ul
-        - @provider.insurers.each do |insurer|
-          %li= insurer.name
-    .row
-      .col-xs-4
-        %p Does this provider accept Medicaid?
-      .col-xs-2
-        %p= @provider.accepts_medicaid
-    .row
-      .col-xs-4
-        %p Does this provider accept Medicare?
-      .col-xs-2
-        %p= @provider.accepts_medicare
-
+      .row
+        .col-xs-12.col-sm-8.col-sm-offset-2
+          %p This provider accepts the following insurances:
+          %ul
+            - @provider.insurers.each do |insurer|
+              %li= insurer.name
+      .row
+        .col-xs-12.col-sm-8.col-sm-offset-2
+          %p Does this provider accept Medicaid?
+        .col-xs-12.col-sm-8.col-sm-offset-2
+          %p= @provider.accepts_medicaid
+      .row
+        .col-xs-12.col-sm-8.col-sm-offset-2
+          %p Does this provider accept Medicare?
+        .col-xs-12.col-sm-8.col-sm-offset-2
+          %p= @provider.accepts_medicare
+%hr
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
       .row
         .col-xs-12
           %h3 Practice
 
-  .row
-    .col-xs-12.col-sm-8.col-sm-offset-2
-      %p This provider is/is not accepting patients
+      .row
+        .col-xs-12.col-sm-8.col-sm-offset-2
+          %p This provider is/is not accepting patients
 
 
-  .row
-    .col-xs-12.col-sm-8.col-sm-offset-2
-      %p Specialization
+      .row
+        .col-xs-12.col-sm-8.col-sm-offset-2
+          %p Specialization
 
-  .row
-    .col-xs-12.col-sm-8.col-sm-offset-2
-      %p Expertise
+      .row
+        .col-xs-12.col-sm-8.col-sm-offset-2
+          %p Expertise
 
-
+%hr
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
       .row
         .col-xs-12
-          %h3 Provider Identity
+          %h3 Identity
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
@@ -71,9 +62,9 @@
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Orientation
+          %p Sexual Orientation
 
-
+%hr
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
       .row
@@ -103,7 +94,7 @@
           %p Staff Fully Trained in Racial & Cultural Issues?
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p Description
-
+%hr
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
       .row
