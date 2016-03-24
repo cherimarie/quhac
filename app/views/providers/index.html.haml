@@ -12,6 +12,7 @@
           .row
             .col-xs-12.provider-index-head
               %h2= link_to provider.name, provider_path(provider.id)
+              / %p.title= provider.type
               %p.title Massage Therapist
           .row
             .col-xs-12.col-sm-5
@@ -26,8 +27,6 @@
                   %p Medicaid?
                 .col-xs-2
                   %p= provider.accepts_medicaid
-                .col-xs-2.col-xs-offset-0.col-sm-offset-2
-                  %p Molina
               .row
                 .col-xs-4
                   %p Medicare?
