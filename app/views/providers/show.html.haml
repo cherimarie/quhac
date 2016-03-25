@@ -1,10 +1,10 @@
 .row
   .col-xs-11.col-xs-offset-1
     %h1= @provider.name
-    %p= @provider.street_address
-    %p= @provider.city
     %p= @provider.type
     %p= @provider.clinic.name
+    %p= @provider.street_address
+    %p= @provider.city
     %p= @provider.email
 
 %hr
@@ -39,16 +39,19 @@
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
           - show = @provider.new_clients ? "is" : "is not"
-          %p= "This provider #{show} accepting patients"
+          %p.question
+            This provider
+            %span.embedded-answer= show
+            accepting new patients at this time
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question Specialization
-          %p= @provider.specialization
+          %p= @provider.specialization || "N/A"
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question Expertise
-          %p= @provider.population_expertise
+          %p= @provider.population_expertise || "N/A"
 %hr
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
@@ -59,11 +62,11 @@
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question Gender Identity
-          %p= @provider.gender_id
+          %p= @provider.gender_id || "N/A"
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question Sexual Orientation
-          %p= @provider.orientation
+          %p= @provider.orientation || "N/A"
 %hr
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
@@ -74,29 +77,33 @@
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question Gender Neutral Restrooms?
-          %p= @provider.gender_neutral_rr
+          %p= @provider.gender_neutral_rr || "N/A"
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Comprehensive Intake?
-          %p= @provider.comprehensive_intake
+          %p.question Comprehensive intake forms that include a patient's chosen name and gender pronouns?
+          %p= @provider.comprehensive_intake || "N/A"
+      .row
+        .col-xs-12.col-sm-8.col-sm-offset-2
+          %p.question Clinic uses a patient's chosen name (as opposed to their legal name) on their chart?
+          %p= @provider.use_pref_name || "N/A"
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question Trans standard of care used:
-          %p= @provider.trans_standard_of_care
+          %p= @provider.trans_standard_of_care || "N/A"
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question Staff Fully Trained in LGBTQ Issues?
-          %p= @provider.lgbtq_trained
+          %p= @provider.lgbtq_trained || "N/A"
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question Description
-          %p= @provider.lgbtq_training_details
+          %p= @provider.lgbtq_training_details || "N/A"
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question Staff Fully Trained in Racial & Cultural Issues?
-          %p= @provider.cultural_trained
+          %p= @provider.cultural_trained || "N/A"
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question Description
-          %p= @provider.cultural_training_details
+          %p= @provider.cultural_training_details || "N/A"
 %hr
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
@@ -108,22 +115,22 @@
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question What does your clinic do to make the space welcoming and inclusive for LGBQ-identified patients?
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p= @provider.lgbq_incl_strategy
+          %p= @provider.lgbq_incl_strategy || "N/A"
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question What does your clinic do to make the space welcoming and inclusive for trans- and genderqueer-identified patients?
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p= @provider.trans_incl_strategy
+          %p= @provider.trans_incl_strategy || "N/A"
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question Please describe the ways in which you are involved in LGBTQ community outside of your practice (ex: Do you attend conferences on working with LGBTQ clients? Are you involved in local organizations that serve these communities? etc).
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p= @provider.community_relationship
+          %p= @provider.community_relationship || "N/A"
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p.question What else do you want potential patients to know about you or your clinic?
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p= @provider.additional
+          %p= @provider.additional || "N/A"
