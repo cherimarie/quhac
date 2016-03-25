@@ -4,7 +4,7 @@
     %p= @provider.street_address
     %p= @provider.city
     %p= @provider.type
-    %p= @provider.clinic
+    %p= @provider.clinic.name
     %p= @provider.email
 
 %hr
@@ -15,18 +15,18 @@
           %h3 Insurance
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p This provider accepts the following insurances:
+          %p.question This provider accepts the following insurances:
           %ul
             - @provider.insurers.each do |insurer|
               %li= insurer.name
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Does this provider accept Medicaid?
+          %p.question Does this provider accept Medicaid?
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p= @provider.accepts_medicaid
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Does this provider accept Medicare?
+          %p.question Does this provider accept Medicare?
         .col-xs-12.col-sm-8.col-sm-offset-2
           %p= @provider.accepts_medicare
 %hr
@@ -38,17 +38,17 @@
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p This provider is/is not accepting patients
-
-
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Specialization
+          - show = @provider.new_clients ? "is" : "is not"
+          %p= "This provider #{show} accepting patients"
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Expertise
-
+          %p.question Specialization
+          %p= @provider.specialization
+      .row
+        .col-xs-12.col-sm-8.col-sm-offset-2
+          %p.question Expertise
+          %p= @provider.population_expertise
 %hr
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
@@ -58,12 +58,12 @@
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Gender Identity
-
+          %p.question Gender Identity
+          %p= @provider.gender_id
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Sexual Orientation
-
+          %p.question Sexual Orientation
+          %p= @provider.orientation
 %hr
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
@@ -73,27 +73,30 @@
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Gender Neutral Restrooms?
-
+          %p.question Gender Neutral Restrooms?
+          %p= @provider.gender_neutral_rr
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Comprehensive Intake?
-
+          %p.question Comprehensive Intake?
+          %p= @provider.comprehensive_intake
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Trans standard of care:  some value
-
+          %p.question Trans standard of care used:
+          %p= @provider.trans_standard_of_care
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Staff Fully Trained in LGBTQ Issues?
+          %p.question Staff Fully Trained in LGBTQ Issues?
+          %p= @provider.lgbtq_trained
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Description
-
+          %p.question Description
+          %p= @provider.lgbtq_training_details
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Staff Fully Trained in Racial & Cultural Issues?
+          %p.question Staff Fully Trained in Racial & Cultural Issues?
+          %p= @provider.cultural_trained
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Description
+          %p.question Description
+          %p= @provider.cultural_training_details
 %hr
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
@@ -103,24 +106,24 @@
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p What does your clinic do to make the space welcoming and inclusive for LGBQ-identified patients?
+          %p.question What does your clinic do to make the space welcoming and inclusive for LGBQ-identified patients?
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Answer
+          %p= @provider.lgbq_incl_strategy
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p What does your clinic do to make the space welcoming and inclusive for trans- and genderqueer-identified patients?
+          %p.question What does your clinic do to make the space welcoming and inclusive for trans- and genderqueer-identified patients?
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Answer
+          %p= @provider.trans_incl_strategy
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Please describe the ways in which you are involved in LGBTQ community outside of your practice (ex: Do you attend conferences on working with LGBTQ clients? Are you involved in local organizations that serve these communities? etc).
+          %p.question Please describe the ways in which you are involved in LGBTQ community outside of your practice (ex: Do you attend conferences on working with LGBTQ clients? Are you involved in local organizations that serve these communities? etc).
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Answer
+          %p= @provider.community_relationship
 
       .row
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p What else do you want potential patients to know about you or your clinic?
+          %p.question What else do you want potential patients to know about you or your clinic?
         .col-xs-12.col-sm-8.col-sm-offset-2
-          %p Answer
+          %p= @provider.additional
