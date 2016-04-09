@@ -4,6 +4,7 @@ class ProvidersController < ApplicationController
   def index
     if params[:search]
       @providers = Provider.search(params[:search])
+      @showing_results = true
     else
       @providers = Provider.all
     end
