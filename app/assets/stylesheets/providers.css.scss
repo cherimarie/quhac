@@ -14,6 +14,9 @@ p {margin: 0}
   padding: 4rem 0;
   background-color: $brand-light-gray;
   border-left: 10px solid $brand-primary;
+  -webkit-box-shadow: 2px 2px 5px 0px $brand-dark-gray;
+  -moz-box-shadow: 2px 2px 5px 0px $brand-dark-gray;
+  box-shadow: 2px 2px 5px 0px $brand-dark-gray;
   img {
     max-width: 11rem;
     margin-top: -1.5rem;
