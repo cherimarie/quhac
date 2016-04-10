@@ -93,6 +93,12 @@ input#search {
   }
 }
 
+.box-shadow {
+  -webkit-box-shadow: 2px 2px 8px 0px $brand-dark-gray;
+  -moz-box-shadow: 2px 2px 8px 0px $brand-dark-gray;
+  box-shadow: 2px 2px 8px 0px $brand-dark-gray;
+}
+
 footer {
   border-top: 1px solid #000;
   padding-top: 2rem;
