@@ -48,7 +48,7 @@ input[type="reset"] {
   margin: 1px 0;
   &:hover {
     text-decoration: underline;
-    color: #337ab7;
+    color: $brand-info;
   }
   &:focus {
     outline-color: $brand-primary;
@@ -63,10 +63,10 @@ input[type="reset"] {
 }
 
 .advanced-search {
-  border-left: 8px solid $brand-primary;
+  // border-top: 8px solid $brand-primary;
   background-color: $brand-light-gray;
   margin-bottom: 5rem;
-  color: #555;
+  color: $brand-dark-gray;
   h1, h2 {font-weight: bold;}
   h1 {margin-top: 5rem; font-size: 4.5rem;}
   h2 {
