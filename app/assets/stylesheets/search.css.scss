@@ -55,5 +55,9 @@ input[type="reset"] {
   .base-submit {margin: 2px 0; border: none; color: $white;}
   .grey-button {padding: .7rem; font-size: 1.6rem;}
   label {font-weight: normal;}
+  @media (max-width: 500px) {
+    margin: 0 0 5rem 0;
+    width: 100%;
+  }
 }
 
