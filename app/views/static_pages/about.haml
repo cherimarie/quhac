@@ -1,17 +1,6 @@
 .row
   .col-xs-12
-    .quick-search.col-xs-12.col-sm-5
-      %h2.text-center Quick Search
-      .quick-row-1
-        = form_tag "/providers", method: "get" do
-          = label_tag "Search for Providers"
-          = text_field_tag :search, params[:search], placeholder:"sparkle"
-          = submit_tag "Search", name: nil, :class => "base-submit"
-      .quick-row-2
-        = link_to providers_path do
-          .btn.btn-link.grey-button Browse All Providers
-        = link_to advanced_search_path do
-          .btn.btn-link.grey-button Advanced Search
+    = render 'providers/quick_search_form'
 
     .about.col-xs-12.col-sm-7.text-center
       %h2 About

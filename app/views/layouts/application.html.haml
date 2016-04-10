@@ -44,13 +44,13 @@
                   = link_to "Contact Us", contact_path
                 %li
                   = link_to "Search Providers", advanced_search_path
-                %li
-                  - if current_user
+                - if current_user
+                  %li
                     = link_to "Sign Out", destroy_user_session_path, method: :delete
+                  %li
                     = link_to "Admin Dashboard", rails_admin_path if can? :manage, Provider
           .row.gay-city
 
             .col-xs-4.col-xs-offset-4.col-sm-2.col-sm-offset-5.text-center
               = link_to root_path do
                 = image_tag("gchp-aptby-black.jpg")
-
