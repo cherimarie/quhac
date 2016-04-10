@@ -1,6 +1,10 @@
 
 .row
   .col-xs-12.col-sm-8.col-sm-offset-2.advanced-search
-    .col-xs-12
-      %h1.text-center Advanced Search
+    %h2.text-center Filter Providers
     = render 'providers/filtering_form'
+
+.row
+  .col-xs-12.col-sm-8.col-sm-offset-2.advanced-search
+    %h2.text-center Search Providers
+    = render 'providers/advanced_text_search_form'
