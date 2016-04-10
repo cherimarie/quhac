@@ -119,15 +119,12 @@
               %option{value: 'zip'} Zip Code
 
   .row.filter-big-row
-    .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-0
+    .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-8
       %fieldset
         %input.grey-button{type:'reset', name: 'reset', value: 'Reset Filters'}
-    .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-0
+    .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-8
       %fieldset
         %input.base-submit{type: 'submit', name: 'submit-filter', value: 'Filter Providers'}
-    .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-0
-      = link_to providers_path do
-        .btn.btn-link.grey-button Browse All Providers
 
 / %form
 /   %h2 Search Providers

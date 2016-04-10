@@ -1,6 +1,7 @@
 .filter-big-row {
   padding: 1rem 0;
   margin-bottom: 3rem;
+  .base-submit {width: 100%;}
 }
 
 // make sure this select doesn't touch other styles site-wide
@@ -36,6 +37,8 @@ input[type="reset"] {
     outline-color: $brand-primary;
   }
 }
+
+.adv-grey {margin-bottom: 3rem; padding: .7rem;}
 
 .insurers input[type="checkbox"] {
   float: none;
