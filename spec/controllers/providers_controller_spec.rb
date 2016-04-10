@@ -55,8 +55,9 @@ RSpec.describe ProvidersController, type: :controller do
       expect(assigns(:providers)).to include(@lion_provider)
       expect(assigns(:providers)).to include(@monkey_provider)
     end
+  end
 
-
+  describe "quick search on index" do
     it "returns providers whose name matches query" do
       get :index, search: "monkey"
 
@@ -85,6 +86,14 @@ RSpec.describe ProvidersController, type: :controller do
       expect(assigns(:providers)).to include(@lion_provider)
       expect(assigns(:providers)).to include(@pro1)
     end
+  end
+
+  describe "text search on index" do
+
+  end
+
+  describe "filter search on index" do
+
   end
 
   describe "show" do

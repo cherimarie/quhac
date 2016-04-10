@@ -1,7 +1,7 @@
 .quick-row-1.clearfix
   = form_tag "/providers", method: "get" do
-    = label_tag "search_all_text", "Search for Providers"
-    = text_field_tag :search_all_text, params[:search_all_text], placeholder: "softball team sponsor"
+    = label_tag "text_search", "Search for Providers"
+    = text_field_tag :text_search, params[:text_search], placeholder: "softball team sponsor"
     = submit_tag "Search", name: nil, :class => "base-submit"
 .quick-row-1
   %small This searches providers' self-reported name, email, type, population expertise, specialization, gender identity, orientation, trans standard of care, details of lgbtq and cultural competency training, practice's inclusion strategies for trans and lgbq patients, details of practice's relationship with the lgbtqia community, and additional details.
