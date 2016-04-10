@@ -7,10 +7,6 @@
 
 .row
   .col-xs-10.col-xs-offset-1
-    = render 'providers/quick_search_form'
-
-.row
-  .col-xs-10.col-xs-offset-1
     - @providers.each do |provider|
       .row.card
         .col-xs-2
@@ -48,3 +44,8 @@
     .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-4
       = link_to providers_path do
         %button.base-submit.clr-search.center-block Clear Search
+
+.row
+  .col-xs-6.col-xs-offset-3.results-qs-container
+    = render 'providers/quick_search_form'
+
