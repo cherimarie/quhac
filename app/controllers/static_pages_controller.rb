@@ -1,6 +1,9 @@
 class StaticPagesController < ApplicationController
 
   def about
+    if root_path
+      @home = true
+    end
   end
 
   def contact

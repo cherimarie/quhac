@@ -3,9 +3,23 @@ body {
   font-family: "Open Sans", Arial, sans-serif;
 }
 
-header img {
+.alert {margin-bottom: .5rem;}
+
+.norm {
   max-width: 100%;
-  margin-bottom: 0;
+  background-color: $brand-primary;
+  img {
+    max-width: 50%;
+    margin: 0 25%;
+    padding-top: 1.5%;
+    border-bottom: 2px solid #000;
+  }
+  border-bottom: 2px solid #000;
+}
+
+.home img {
+  max-width: 100%;
+  margin: 0;
   border-bottom: 2px solid #000;
 }
 
