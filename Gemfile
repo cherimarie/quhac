@@ -23,9 +23,9 @@ gem 'figaro'
 group :test do
   gem 'simplecov', require: false
   gem 'capybara'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
   gem 'pry'
 end
