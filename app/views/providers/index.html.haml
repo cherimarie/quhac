@@ -1,6 +1,13 @@
 .row
   .col-xs-12.results-head
-    %h1.col-xs-10.col-xs-offset-1 Provider Search Results
+    - if @showing_results
+      %h1.col-xs-10.col-xs-offset-1 Provider Search Results
+    - else
+      %h1.col-xs-10.col-xs-offset-1 Providers
+
+.row
+  .col-xs-10.col-xs-offset-1
+    = render 'providers/quick_search_form'
 
 .row
   .col-xs-10.col-xs-offset-1
@@ -36,7 +43,8 @@
                   Insurance accepted:
                   %p= provider.insurers.map { |ins| ins.name } .join(", ")
 
-.row
-  .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-4
-    = link_to providers_path do
-      %button.base-submit.clr-search.center-block Clear Search
+- if @showing_results
+  .row
+    .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-4
+      = link_to providers_path do
+        %button.base-submit.clr-search.center-block Clear Search
