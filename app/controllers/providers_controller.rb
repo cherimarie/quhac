@@ -2,6 +2,8 @@ class ProvidersController < ApplicationController
   load_and_authorize_resource
 
   def index
+    # REVIEW: if these all have diff kinds of params, could we just put them all in index?
+    # have the else block be "if no params?"
     if params[:search]
       quick_search
     elsif params[:text_search]
@@ -26,7 +28,8 @@ class ProvidersController < ApplicationController
   end
 
   def text_search
-
+    @providers = Provider.text_search(params[:text_search])
+    @showing_results = true
   end
 
   def filter_search
