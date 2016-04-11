@@ -1,4 +1,4 @@
-=form_tag('/providers', method: 'get') do
+=form_tag('/providers', method: 'get', namespace: 'text_search') do
 
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
@@ -9,9 +9,8 @@
         .col-xs-10.col-xs-offset-1
           %fieldset.insurers
             - Insurer.all.each do |ins|
-              %label{for: "ins-#{ins.id}"}=ins.name
-              %input{type: 'checkbox', id: "ins-#{ins.id}", value: "ins-#{ins.id}", name: "ins-#{ins.id}"}
-
+              = label_tag("ins-#{ins.id}", ins.name)
+              = check_box_tag("ins-#{ins.id}")
 
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
@@ -23,7 +22,7 @@
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'accepting'} Accepting New Patients
-            %input{type: 'checkbox', value: 'accepting', id: 'accepting', name: 'accepting'}
+            = check_box_tag(:accepting)
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
@@ -66,27 +65,27 @@
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'pref-name'} Patients' Preferred Name in Charts
-            %input{type: 'checkbox', value: 'pref-name', id: 'pref-name', name: 'pref-name'}
+            = check_box_tag('pref-name')
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'gend-neut-rr'} Gender Neutral Restrooms
-            %input{type: 'checkbox', value: 'gend-neut-rr', id: 'gend-neut-rr', name: 'gend-neut-rr'}
+            = check_box_tag('gend-neut-rr')
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'comp-intake'} Comprehensive Intake
-            %input{type: 'checkbox', value: 'comp-intake', id: 'comp-intake', name: 'comp-intake'}
+            = check_box_tag('comp-intake')
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'lgbtq-trained'} Staff Fully Trained in LGBTQ Issues
-            %input{type: 'checkbox', value: 'lgbtq-trained', id: 'lgbtq-trained', name: 'lgbtq-trained'}
+            = check_box_tag('lgbtq-trained')
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
-            %label{for: 'cultu-tarined'} Staff Fully Trained in Racial & Cultural Issues
-            %input{type: 'checkbox', value: 'cultu-tarined', id: 'cultu-tarined', name: 'cultu-trained'}
+            %label{for: 'cultu-trained'} Staff Fully Trained in Racial & Cultural Issues
+            = check_box_tag('cultu-trained')
 
 
   .row.filter-big-row
@@ -98,11 +97,7 @@
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'sort-by'} Sort Results By
-            %select{id: 'sort-by', name: 'sort-by'}
-              %option{value: 'name'} Name
-              %option{value: 'type'} Type
-              %option{value: 'city'} City
-              %option{value: 'zip'} Zip Code
+            = select_tag 'sort-by', options_for_select(%w{name city type zipcode}), include_blank: true
 
   .row.filter-big-row
     .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-0
