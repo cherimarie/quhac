@@ -1,11 +1,12 @@
 
 .row
   .col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2.advanced-search.box-shadow
-    .col-xs-12
-      %h1.text-center Advanced Search
+    .row.filter-big-row
+      .col-xs-10.col-xs-offset-1
+        %h2 Advanced Search
     = render 'providers/filtering_form'
 
 
   .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-4
     = link_to providers_path do
-      .btn.btn-link.grey-button.adv-grey.btn-box-shadow Browse All Providers
+      .btn.btn-link.grey-button.adv-grey Browse All Providers
