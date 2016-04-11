@@ -9,7 +9,7 @@ class ProvidersController < ApplicationController
     elsif params[:text_search]
       text_search
     elsif params[:filter_search]
-      filter_search
+      filter_search(params[:filter_search])
     else
       @providers = Provider.all
     end
@@ -32,8 +32,8 @@ class ProvidersController < ApplicationController
     @showing_results = true
   end
 
-  def filter_search
-
+  def filter_search(filters)
+    puts filters
   end
 
   def provider_params

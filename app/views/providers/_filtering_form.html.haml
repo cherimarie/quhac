@@ -10,7 +10,7 @@
           %fieldset.insurers
             - Insurer.all.each do |ins|
               = label_tag("ins-#{ins.id}", ins.name)
-              = check_box_tag("ins-#{ins.id}")
+              = check_box_tag("filter_search[ins-#{ins.id}]")
 
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
@@ -22,22 +22,22 @@
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'accepting'} Accepting New Patients
-            = check_box_tag(:accepting)
+            = check_box_tag('filter_search[accepting]')
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'type'} Provider Type
-            = select_tag 'type', options_for_select(prov_types), include_blank: true
+            = select_tag('filter_search[type]', options_for_select(prov_types), include_blank: true)
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'expertise'} Expertise
-            = select_tag 'expertise', options_for_select(expertises), include_blank: true
+            = select_tag('filter_search[expertise]', options_for_select(expertises), include_blank: true)
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'specialization'} Specialization
-            = select_tag 'specialization', options_for_select(specializations), include_blank: true
+            = select_tag('filter_search[specialization]', options_for_select(specializations), include_blank: true)
 
 
   .row.filter-big-row
@@ -49,12 +49,12 @@
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'gender-id'} Gender Identity
-            = select_tag 'gender-id', options_for_select(gender_identities), include_blank: true
+            = select_tag('filter_search[gender-id]', options_for_select(gender_identities), include_blank: true)
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'orientation'} Orientation
-            = select_tag 'orientation', options_for_select(orientations), include_blank: true
+            = select_tag('filter_search[orientation]', options_for_select(orientations), include_blank: true)
 
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
@@ -65,27 +65,27 @@
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'pref-name'} Patients' Preferred Name in Charts
-            = check_box_tag('pref-name')
+            = check_box_tag('filter_search[pref-name]')
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'gend-neut-rr'} Gender Neutral Restrooms
-            = check_box_tag('gend-neut-rr')
+            = check_box_tag('filter_search[gend-neut-rr]')
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'comp-intake'} Comprehensive Intake
-            = check_box_tag('comp-intake')
+            = check_box_tag('filter_search[comp-intake]')
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'lgbtq-trained'} Staff Fully Trained in LGBTQ Issues
-            = check_box_tag('lgbtq-trained')
+            = check_box_tag('filter_search[lgbtq-trained]')
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'cultu-trained'} Staff Fully Trained in Racial & Cultural Issues
-            = check_box_tag('cultu-trained')
+            = check_box_tag('filter_search[cultu-trained]')
 
 
   .row.filter-big-row
@@ -97,7 +97,7 @@
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'sort-by'} Sort Results By
-            = select_tag 'sort-by', options_for_select(%w{name city type zipcode}), include_blank: true
+            = select_tag('filter_search[sort-by]', options_for_select(%w{name city type zipcode}), include_blank: true)
 
   .row.filter-big-row
     .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-0
