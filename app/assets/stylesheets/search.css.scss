@@ -9,7 +9,6 @@ select {
   width: 60%;
   font-size: 1.6rem;
   outline-color: $brand-primary;
-
   -webkit-appearance: menu;
   -moz-appearance: menu;
   -webkit-user-select: none;
@@ -55,11 +54,20 @@ input[type="reset"] {
   }
 }
 
-.adv-grey {margin-bottom: 3rem; padding: .7rem;}
-
 .insurers input[type="checkbox"] {
   float: none;
   margin: 0 3rem 0 .7rem;
+}
+
+.adv-grey {
+  margin-bottom: 3rem;
+  padding: .7rem;
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
+  @media (max-width: 380px) {
+    font-size: 1.2rem;
+  }
 }
 
 .advanced-search {
@@ -78,15 +86,30 @@ input[type="reset"] {
     background-color: $brand-primary;
     padding: .4rem 1rem;
   }
+  label {font-weight: normal;}
+
   .base-submit {margin: 2px 0; border: none; color: $white;}
   .grey-button {padding: .7rem; font-size: 1.6rem;}
-  label {font-weight: normal;}
+
+  .base-submit, .grey-button {
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+    }
+    @media (max-width: 380px) {
+    font-size: 1.2rem;
+    }
+  }
+
   @media (max-width: 500px) {
     margin: 0 0 5rem 0;
     width: 100%;
+    font-size: 1.4rem;
+  }
+  @media (max-width: 380px) {
+    font-size: 1.2rem;
   }
   .advanced-search-btn-group {
-    margin: 3rem 0 1rem;
+    margin: 1rem 0 1rem;
   }
 }
 
