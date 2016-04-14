@@ -72,8 +72,10 @@ input[type="reset"] {
 
 .advanced-search {
   background-color: $black;
+  margin-top: 3rem;
   margin-bottom: 5rem;
   color: $white;
+  padding-bottom: 3rem;
   h2, h3 {font-weight: bold;}
   h2 {
     margin: 5rem 0 0 0;
@@ -87,6 +89,7 @@ input[type="reset"] {
     padding: .4rem 1rem;
   }
   label {font-weight: normal;}
+  small {font-weight: bold;}
   .base-submit {margin: 2px 0; border: none; color: $white;}
   .grey-button {padding: .7rem; font-size: 1.6rem;}
 
@@ -110,6 +113,14 @@ input[type="reset"] {
   .advanced-search-btn-group {
     margin: 1rem 0 1rem;
   }
+  input#text_search {
+    color: $brand-primary;
+    width: 60%;
+    float: right;
+    margin-bottom: 2rem;
+  }
 }
 
-
+.advanced-search.adv-search-text {
+  margin-top: 0;
+}
