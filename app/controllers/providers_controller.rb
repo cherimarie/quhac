@@ -34,6 +34,8 @@ class ProvidersController < ApplicationController
   end
 
   def filter_search(filters)
+    @showing_results = true
+
     @providers.where(nil)
     @providers = @providers.accepting_new_clients if filters['new-clients']
     @providers = @providers.type(filters[:type]) if filters[:type]
@@ -47,7 +49,12 @@ class ProvidersController < ApplicationController
     @providers = @providers.lgbtq_trained if filters['lgbtq-trained']
     @providers = @providers.cultural_trained if filters['cultu-trained']
 
-    @showing_results = true
+    case filters['sort-by']
+    when 'name', 'type'
+      @providers.order!(filters['sort-by'].to_sym)
+    when 'zip', 'city'
+      @providers.includes(:clinic).order!("clinic.#{filters['sort-by']}")
+    end
   end
 
   def provider_params

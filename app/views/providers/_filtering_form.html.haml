@@ -97,7 +97,7 @@
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'sort-by'} Sort Results By
-            = select_tag('filter_search[sort-by]', options_for_select(%w{name city type zipcode}), include_blank: true)
+            = select_tag('filter_search[sort-by]', options_for_select(%w{name city type zip}), include_blank: true)
 
   .row.filter-big-row
     .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-0

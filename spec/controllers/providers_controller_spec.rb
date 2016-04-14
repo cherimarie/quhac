@@ -106,7 +106,7 @@ RSpec.describe ProvidersController, type: :controller do
       cultural_training_details: nil,
       lgbq_incl_strategy: 'Respect for all clients',
       trans_incl_strategy: nil,
-      new_clients: nil,
+      new_clients: true,
       community_relationship: nil,
       additional: 'I like turtles'
     )
@@ -236,7 +236,7 @@ RSpec.describe ProvidersController, type: :controller do
     it 'new-clients' do
       get :index, filter_search: {'new-clients' => '1'}
 
-      expect(assigns(:providers)).to eq([@bull_pro])
+      expect(assigns(:providers)).to eq([@bull_pro, @lion_pro])
     end
     it 'type' do
       get :index, filter_search: {type: 'acupuncturist'}
@@ -295,16 +295,34 @@ RSpec.describe ProvidersController, type: :controller do
       expect(assigns(:providers)).to eq([@monkey_pro])
     end
     it 'returns multiple results' do
-      @lion_pro.update_attributes(new_clients: true)
       get :index, filter_search: {'new-clients' => '1'}
 
       expect(assigns(:providers)).to eq([@bull_pro, @lion_pro])
     end
     it 'filters comprehensively' do
-      @lion_pro.update_attributes(new_clients: true)
       get :index, filter_search: {'new-clients' => '1', 'gend-neut-rr' => '1'}
 
       expect(assigns(:providers)).to eq([@bull_pro])
+    end
+    it 'sorts by name' do
+      get :index, filter_search: {'new-clients' => '1', 'sort-by' => 'name'}
+
+      expect(assigns(:providers)).to eq([@lion_pro, @bull_pro])
+    end
+    it 'sorts by type' do
+      get :index, filter_search: {'new-clients' => '1', 'sort-by' => 'type'}
+
+      expect(assigns(:providers)).to eq([@lion_pro, @bull_pro])
+    end
+    it 'sorts by zip' do
+      get :index, filter_search: {'new-clients' => '1', 'sort-by' => 'zip'}
+
+      expect(assigns(:providers)).to eq([@bull_pro, @lion_pro])
+    end
+    it 'sorts by city' do
+      get :index, filter_search: {'new-clients' => '1', 'sort-by' => 'city'}
+
+      expect(assigns(:providers)).to eq([@bull_pro, @lion_pro])
     end
   end
 
