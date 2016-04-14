@@ -30,7 +30,7 @@ input[type="reset"] {
   margin: 1px 0;
   &:hover {
     text-decoration: underline;
-    color: #337ab7;
+    color: $brand-info;
   }
   &:focus {
     outline-color: $brand-primary;
@@ -45,7 +45,7 @@ input[type="reset"] {
 .advanced-search {
   background-color: $brand-light-gray;
   margin-bottom: 5rem;
-  color: #555;
+  color: $brand-dark-gray;
   h3 {margin-bottom: 2rem;}
   h2 {margin-top: 5rem; font-size: 4.5rem;}
   .base-submit {margin: 2px 0; border: none; color: $white;}
