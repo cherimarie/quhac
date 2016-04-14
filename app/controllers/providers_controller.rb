@@ -3,7 +3,6 @@ class ProvidersController < ApplicationController
 
   def index
     @showing_results = true
-
     if params[:search]
       @providers = quick_search(params[:search])
     elsif params[:text_search]
@@ -35,11 +34,11 @@ class ProvidersController < ApplicationController
   def filter_search(filters)
     providers = Provider.where(nil) # Getting all Providers, so can be filtered
     providers = providers.accepting_new_clients if filters['new-clients']
-    providers = providers.type(filters[:type]) if filters[:type]
-    providers = providers.expertise_includes(filters[:expertise]) if filters[:expertise]
-    providers = providers.specialization(filters[:specialization]) if filters[:specialization]
-    providers = providers.gender_id(filters[:gender_id]) if filters[:gender_id]
-    providers = providers.orientation(filters[:orientation]) if filters[:orientation]
+    providers = providers.type(filters[:type]) if filters[:type].present?
+    providers = providers.expertise_includes(filters[:expertise]) if filters[:expertise].present?
+    providers = providers.specialization(filters[:specialization]) if filters[:specialization].present?
+    providers = providers.gender_id(filters[:gender_id]) if filters[:gender_id].present?
+    providers = providers.orientation(filters[:orientation]) if filters[:orientation].present?
     providers = providers.use_pref_name if filters['pref-name']
     providers = providers.gender_neutral_rr if filters['gend-neut-rr']
     providers = providers.comprehensive_intake if filters['comp-intake']
