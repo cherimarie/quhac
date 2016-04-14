@@ -324,6 +324,11 @@ RSpec.describe ProvidersController, type: :controller do
 
       expect(assigns(:providers)).to eq([@bull_pro, @lion_pro])
     end
+    it 'filters by insurer' do
+      get :index, filter_search: {insurers: {Premera: '1', Molina: '1'}
+
+      expect(assigns(:providers)).to eq([@bull_pro, @lion_pro])
+    end
   end
 
   describe 'show' do

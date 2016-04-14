@@ -32,7 +32,15 @@ class ProvidersController < ApplicationController
   end
 
   def filter_search(filters)
-    providers = Provider.where(nil) # Getting all Providers, so can be filtered
+    if filters[:insurers].present?
+      # Insurer.where(name: filters[:insurers].keys).each do |ins|
+      #   providers += ins.providers
+      # end
+      binding.pry
+       puts Provider.joins(:provider_insurers).where(insurer_id: filters[:insurers].keys)
+    else
+      providers = Provider.where(nil) # Getting all Providers, so can be filtered
+    end
     providers = providers.accepting_new_clients if filters['new-clients']
     providers = providers.type(filters[:type]) if filters[:type].present?
     providers = providers.expertise_includes(filters[:expertise]) if filters[:expertise].present?

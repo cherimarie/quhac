@@ -10,7 +10,7 @@
           %fieldset.insurers
             - Insurer.all.each do |ins|
               = label_tag("ins-#{ins.id}", ins.name)
-              = check_box_tag("filter_search[ins-#{ins.id}]")
+              = check_box_tag("filter_search[insurers][#{ins.id}]")
 
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
