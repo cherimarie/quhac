@@ -9,6 +9,19 @@ class Provider < ActiveRecord::Base
 
   self.inheritance_column = nil
 
+  scope :accepting_new_clients, -> { where new_clients: true }
+  scope :type, -> (type) { where type: type }
+  scope :expertise_includes, -> (exp) { where population_expertise: exp }
+  scope :specialization, -> (spec) { where specialization: spec }
+  scope :gender_id, -> (gender) { where gender_id: gender }
+  scope :orientation, -> (orientation) { where orientation: orientation }
+  scope :use_pref_name, -> { where use_pref_name: true }
+  scope :gender_neutral_rr, -> { where gender_neutral_rr: true }
+  scope :comprehensive_intake, -> { where comprehensive_intake: true }
+  scope :lgbtq_trained, -> { where lgbtq_trained: true }
+  scope :cultural_trained, -> { where cultural_trained: true }
+
+
   def self.search(search)
     search_length = search.split.length
     where([(['lower(name) LIKE lower(?)'] * search_length).join(' AND ')] + search.split.map { |search| "%#{search}%" }) +
