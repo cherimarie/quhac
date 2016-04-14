@@ -1,14 +1,15 @@
 
 .row
-  .col-xs-12.col-sm-8.col-sm-offset-2.advanced-search
+  .col-xs-12.col-sm-8.col-sm-offset-2.advanced-search.box-shadow
     %h2.text-center Filter Providers
     = render 'providers/filtering_form'
 
 .row
-  .col-xs-12.col-sm-8.col-sm-offset-2.advanced-search.adv-search-text
+  .col-xs-12.col-sm-8.col-sm-offset-2.advanced-search.adv-search-text.box-shadow
     %h2.text-center Search Providers
     = render 'providers/advanced_text_search_form'
 
-.col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-4
-  = link_to providers_path do
-    .btn.btn-link.grey-button.adv-grey Browse All Providers
+.row
+  .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-4
+    = link_to providers_path do
+      .btn.btn-link.grey-button.adv-grey Browse All Providers
