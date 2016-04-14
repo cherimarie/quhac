@@ -23,20 +23,14 @@
   %body.center-block
     .container-fluid
       .row
-        - if @home
-          %header.home
-            = link_to root_path do
-              = image_tag("quhac-facebookheader-pink.jpg")
-              %h1.sr-only
-                Queer Healthcare Accountability Coalition
-            %p.notice= notice
-            %p.alert= alert
-        - else
-          %header.norm
-            = link_to root_path do
-              = image_tag("quhac-facebookheader-pink.jpg", :alt => "")
-            %p.notice= notice
-            %p.alert= alert
+
+        %header
+          = link_to root_path do
+            = image_tag("quhac-facebookheader-pink.jpg", :alt => "")
+            %h1.sr-only
+              Queer Healthcare Accountability Coalition
+          %p.notice= notice
+          %p.alert= alert
 
     = yield
 
