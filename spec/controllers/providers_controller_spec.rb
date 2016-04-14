@@ -29,14 +29,14 @@ RSpec.describe ProvidersController, type: :controller do
       comprehensive_intake: nil,
       use_pref_name: nil,
       trans_standard_of_care: nil,
-      gender_neutral_rr: nil,
+      gender_neutral_rr: true,
       lgbtq_trained: nil,
       lgbtq_training_details: nil,
-      cultural_trained: nil,
+      cultural_trained: false,
       cultural_training_details: nil,
       lgbq_incl_strategy: nil,
       trans_incl_strategy: "Listen to people's choices and identities",
-      new_clients: nil,
+      new_clients: true,
       community_relationship: nil,
       additional: "Donate to Camp Ten Trees every year"
     )
@@ -52,14 +52,14 @@ RSpec.describe ProvidersController, type: :controller do
       comprehensive_intake: nil,
       use_pref_name: nil,
       trans_standard_of_care: nil,
-      gender_neutral_rr: nil,
-      lgbtq_trained: nil,
+      gender_neutral_rr: false,
+      lgbtq_trained: true,
       lgbtq_training_details: "Edna, in accounting, said to be cool",
-      cultural_trained: nil,
+      cultural_trained: true,
       cultural_training_details: "We read a lot",
       lgbq_incl_strategy: nil,
       trans_incl_strategy: nil,
-      new_clients: nil,
+      new_clients: false,
       community_relationship: nil,
       additional: "I want to hug everyone"
     )
@@ -73,11 +73,11 @@ RSpec.describe ProvidersController, type: :controller do
       population_expertise: "Vulcans, Worf",
       gender_id: nil,
       orientation: "it's complicated",
-      comprehensive_intake: nil,
-      use_pref_name: nil,
+      comprehensive_intake: true,
+      use_pref_name: true,
       trans_standard_of_care: nil,
       gender_neutral_rr: nil,
-      lgbtq_trained: nil,
+      lgbtq_trained: false,
       lgbtq_training_details: "Workshop from Bob Ross",
       cultural_trained: nil,
       cultural_training_details: "Workshop by Bobby Blass",
@@ -96,8 +96,8 @@ RSpec.describe ProvidersController, type: :controller do
       population_expertise: "children",
       gender_id: "two spirit",
       orientation: "gay",
-      comprehensive_intake: nil,
-      use_pref_name: nil,
+      comprehensive_intake: false,
+      use_pref_name: true,
       trans_standard_of_care: nil,
       gender_neutral_rr: nil,
       lgbtq_trained: nil,
@@ -233,6 +233,64 @@ RSpec.describe ProvidersController, type: :controller do
   end
 
   describe "filter search on index" do
+    it "by accepting" do
+      get :index, filter_search: {accepting: "1"}
+
+      expect(assigns(:providers)).to eq([@bull_pro])
+    end
+    it "type" do
+      get :index, filter_search: {type: "acupuncturist"}
+
+      expect(assigns(:providers).length).to eq(1)
+      expect(assigns(:providers)).to include(@lion_pro)
+    end
+    it "expertise" do
+      get :index, filter_search: {expertise: "Vulcans, Worf"}
+
+      expect(assigns(:providers)).to eq([@trek_pro])
+    end
+    it "specialization" do
+      get :index, filter_search: {specialization: "trans-men, athletes"}
+
+      expect(assigns(:providers)).to eq([@monkey_pro])
+    end
+    it "gender_id" do
+      get :index, filter_search: {gender_id: "two spirit"}
+
+      expect(assigns(:providers)).to eq([@lion_pro])
+    end
+    it "orientation" do
+      get :index, filter_search: {orientation: "straight"}
+
+      expect(assigns(:providers)).to eq([@monkey_pro])
+    end
+    it "pref-name" do
+      get :index, filter_search: {'pref-name' =>'1'}
+
+      expect(assigns(:providers)).to eq([@trek_pro, @lion_pro])
+    end
+    it "gend-neut-rr" do
+      get :index, filter_search: {'gend-neut-rr' => '1'}
+
+      expect(assigns(:providers)).to eq([@bull_pro])
+    end
+    it "comp-intake" do
+      get :index, filter_search: {'comp-intake' => '1'}
+
+      expect(assigns(:providers)).to eq([@trek_pro])
+    end
+    it "lgbtq-trained" do
+      get :index, filter_search: {'lgbtq-trained' => '1'}
+
+      expect(assigns(:providers)).to eq([@monkey_pro])
+    end
+    it "cultu-trained" do
+      get :index, filter_search: {'cultu-trained' => '1'}
+
+      expect(assigns(:providers)).to eq([@monkey_pro])
+    end
+
+
 
   end
 
