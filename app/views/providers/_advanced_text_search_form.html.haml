@@ -1,8 +1,16 @@
-.quick-row-1.clearfix
-  = form_tag "/providers", method: "get" do
-    = label_tag "text_search", "Search for Providers"
-    = text_field_tag :text_search, params[:text_search], placeholder: "softball team sponsor"
+.row.filter-big-row
+  .col-xs-10.col-xs-offset-1
+    %h3 Search With Text
+    .row
+      .col-xs-12.col-md-11.col-md-offset-1
+        = form_tag "/providers", method: "get" do
+          = label_tag "text_search", "Search for Providers"
+          = text_field_tag :text_search, params[:text_search], placeholder: "softball team sponsor"
+    .row
+      .col-xs-12.col-md-11.col-md-offset-1
+        %small This searches providers' self-reported name, email, type, population expertise, specialization, gender identity, orientation, trans standard of care, details of lgbtq and cultural competency training, practice's inclusion strategies for trans and lgbq patients, details of practice's relationship with the lgbtqia community, and additional details.
+.row.filter-big-row
+  .col-xs-4.col-xs-offset-4.col-sm-4.col-sm-offset-7.col-md-3.col-md-offset-8
     = submit_tag "Search", name: nil, :class => "base-submit"
-.quick-row-1
-  %small This searches providers' self-reported name, email, type, population expertise, specialization, gender identity, orientation, trans standard of care, details of lgbtq and cultural competency training, practice's inclusion strategies for trans and lgbq patients, details of practice's relationship with the lgbtqia community, and additional details.
+
 
