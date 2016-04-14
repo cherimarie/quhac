@@ -28,26 +28,17 @@
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'type'} Provider Type
-            %select{id: 'type', name: 'type'}
-              %option
-              - prov_types.each do |exp|
-                %option{value: "#{exp}"}= exp
+            = select_tag 'type', options_for_select(prov_types), include_blank: true
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'expertise'} Expertise
-            %select{id: 'expertise', name: 'expertise'}
-              %option
-              - expertises.each do |exp|
-                %option{value: "#{exp}"}= exp
+            = select_tag 'expertise', options_for_select(expertises), include_blank: true
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'specialization'} Specialization
-            %select{id: 'specialization', name: 'specialization'}
-              %option
-              - specializations.each do |spec|
-                %option{value: "#{spec}"}= spec
+            = select_tag 'specialization', options_for_select(specializations), include_blank: true
 
 
   .row.filter-big-row
@@ -59,18 +50,12 @@
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'gender-id'} Gender Identity
-            %select{id: 'gender-id', name: 'gender-id'}
-              %option
-              - gender_identities.each do |exp|
-                %option{value: "#{exp}"}= exp
+            = select_tag 'gender-id', options_for_select(gender_identities), include_blank: true
       .row
         .col-xs-8.col-xs-offset-1
           %fieldset
             %label{for: 'orientation'} Orientation
-            %select{id: 'orientation', name: 'orientation'}
-              %option
-              - orientations.each do |exp|
-                %option{value: "#{exp}"}= exp
+            = select_tag 'orientation', options_for_select(orientations), include_blank: true
 
   .row.filter-big-row
     .col-xs-11.col-xs-offset-1
@@ -129,9 +114,3 @@
     .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-0
       = link_to providers_path do
         .btn.btn-link.grey-button Browse All Providers
-
-/ %form
-/   %h3 Search Providers
-/   %label{for: 'search'} Search
-/   %input{id: 'search', name: 'search'}
-/   %input{type: 'submit', name: 'submit-search', value: 'Submit Search'}
