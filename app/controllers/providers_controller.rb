@@ -35,7 +35,7 @@ class ProvidersController < ApplicationController
 
   def filter_search(filters)
     @providers.where(nil)
-    @providers = @providers.accepting_new_clients if filters[:accepting]
+    @providers = @providers.accepting_new_clients if filters['new-clients']
     @providers = @providers.type(filters[:type]) if filters[:type]
     @providers = @providers.expertise_includes(filters[:expertise]) if filters[:expertise]
     @providers = @providers.specialization(filters[:specialization]) if filters[:specialization]
