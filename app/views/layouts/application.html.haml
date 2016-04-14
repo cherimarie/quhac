@@ -23,10 +23,11 @@
   %body.center-block
     .container-fluid
       .row
+
         %header
           = link_to root_path do
-            = image_tag("quhac-facebookheader-pink.jpg")
-            %h1.sr-only.text-center
+            = image_tag("quhac-facebookheader-pink.jpg", :alt => "")
+            %h1.sr-only
               Queer Healthcare Accountability Coalition
           %p.notice= notice
           %p.alert= alert
