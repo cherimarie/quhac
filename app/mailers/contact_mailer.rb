@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "quhac@gaycity.org"
 
   def new_contact(name: nil, email: nil, comments:)
     @name = name
