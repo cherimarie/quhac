@@ -37,7 +37,7 @@ class ProvidersController < ApplicationController
     providers = providers.type(filters[:type]) if filters[:type].present?
     providers = providers.expertise_includes(filters[:expertise]) if filters[:expertise].present?
     providers = providers.specialization(filters[:specialization]) if filters[:specialization].present?
-    providers = providers.gender_id(filters[:gender_id]) if filters[:gender_id].present?
+    providers = providers.gender_id(filters['gender-id']) if filters['gender-id'].present?
     providers = providers.orientation(filters[:orientation]) if filters[:orientation].present?
     providers = providers.use_pref_name if filters['pref-name']
     providers = providers.gender_neutral_rr if filters['gend-neut-rr']
