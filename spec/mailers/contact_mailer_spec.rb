@@ -13,7 +13,7 @@ RSpec.describe ContactMailer, type: :mailer do
     end
 
     it 'renders the sender email' do
-      expect(mail.from).to eql(['from@example.com'])
+      expect(mail.from).to eql(['quhac@gaycity.org'])
     end
 
     it 'assigns @name' do
