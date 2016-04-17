@@ -10,7 +10,7 @@ class StaticPagesController < ApplicationController
   end
 
   def submit_contact
-    if params[:robots_are_dumb].empty? && Rails.env != "production"
+    if params[:robots_are_dumb].empty?
       ContactMailer.new_contact(name: params[:name], email: params[:email], comments: params[:comments]).deliver
     end
     flash[:notice] = "Thanks #{params[:name]}!"

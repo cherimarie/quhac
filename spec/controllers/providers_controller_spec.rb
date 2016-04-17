@@ -255,7 +255,7 @@ RSpec.describe ProvidersController, type: :controller do
       expect(assigns(:providers)).to eq([@monkey_pro])
     end
     it 'gender_id' do
-      get :index, filter_search: {gender_id: 'two spirit'}
+      get :index, filter_search: {'gender-id' => 'two spirit'}
 
       expect(assigns(:providers)).to eq([@lion_pro])
     end
