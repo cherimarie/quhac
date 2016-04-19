@@ -1,11 +1,16 @@
 class Provider < ActiveRecord::Base
   validates :name, :clinic_id, presence: true
-
-  has_many :provider_insurers
-  has_many :insurers, through: :provider_insurers
   belongs_to :clinic
-
   delegate :street_address, :city, :zip, :phone, :website, to: :clinic
+
+  has_many :provider_insurers, inverse_of: :provider
+  has_many :insurers, through: :provider_insurers
+
+  rails_admin do
+    configure :provider_insurers do
+      visible(false)
+    end
+  end
 
   self.inheritance_column = nil
 

@@ -3,6 +3,6 @@ class InsurersController < ApplicationController
 
   private
   def insurer_params
-    params.require(:insurer).permit(:name)
+    params.require(:insurer).permit(:name, :is_medicaid, :provider_ids)
   end
 end

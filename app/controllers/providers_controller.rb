@@ -55,6 +55,6 @@ class ProvidersController < ApplicationController
   end
 
   def provider_params
-    params.require(:provider).permit(:name, :clinic_id)
+    params.require(:provider).permit(:name, :clinic_id, :insurer_ids)
   end
 end
