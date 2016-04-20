@@ -23,6 +23,15 @@ p {margin: 0}
     @media (max-width: 992px) {min-width: 9rem; background-size: 9rem; height: 9rem; }
     @media (max-width: 768px) {min-width: 7rem; background-size: 7rem; height: 7rem; }
     @media (max-width: 650px) {display: none;}
+    &.a {
+      background-image: url('/assets/a-logo.png');
+    }
+    &.b {
+      background-image: url('/assets/b-logo.png');
+    }
+    &.c {
+      background-image: url('/assets/c-logo.png');
+    }
   }
 }
 
