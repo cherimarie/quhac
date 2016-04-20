@@ -8,5 +8,8 @@ class Insurer < ActiveRecord::Base
     configure :provider_insurers do
       visible(false)
     end
+    configure :providers do
+      visible(false)
+    end
   end
 end
