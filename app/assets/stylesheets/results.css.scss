@@ -15,7 +15,7 @@ p {margin: 0}
   background-color: $brand-light-gray;
   border-left: 10px solid $brand-primary;
   .icon {
-    background-image: url('/assets/QuHac-logo.png');
+    background-image: asset_url('QuHac-logo.png');
     background-repeat: no-repeat;
     background-position: center;
     margin-top: -1.5rem;
@@ -24,13 +24,13 @@ p {margin: 0}
     @media (max-width: 768px) {min-width: 7rem; background-size: 7rem; height: 7rem; }
     @media (max-width: 650px) {display: none;}
     &.a {
-      background-image: url('/assets/a-logo.png');
+      background-image: asset_url('a-logo.png');
     }
     &.b {
-      background-image: url('/assets/b-logo.png');
+      background-image: asset_url('b-logo.png');
     }
     &.c {
-      background-image: url('/assets/c-logo.png');
+      background-image: asset_url('c-logo.png');
     }
   }
 }
