@@ -9,7 +9,6 @@ RailsAdmin.config do |config|
   config.authorize_with :cancan
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -19,10 +18,7 @@ RailsAdmin.config do |config|
     show
     edit
     delete
-    show_in_app
   end
-
-  config.excluded_models = ["ProviderInsurer"]
 
   config.model 'User' do
     include_fields :email, :role
