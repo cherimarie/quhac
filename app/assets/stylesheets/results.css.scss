@@ -14,11 +14,14 @@ p {margin: 0}
   padding: 4rem 0;
   background-color: $brand-light-gray;
   border-left: 10px solid $brand-primary;
-  img {
-    max-width: 11rem;
+  .icon {
+    background-image: url('/assets/QuHac-logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
     margin-top: -1.5rem;
-    @media (max-width: 992px) {max-width: 9rem;}
-    @media (max-width: 768px) {max-width: 7rem;}
+    @media (min-width: 993px) {min-width: 11rem; background-size: 11rem; height: 11rem; }
+    @media (max-width: 992px) {min-width: 9rem; background-size: 9rem; height: 9rem; }
+    @media (max-width: 768px) {min-width: 7rem; background-size: 7rem; height: 7rem; }
     @media (max-width: 650px) {display: none;}
   }
 }
@@ -29,8 +32,6 @@ p {margin: 0}
   h3 {margin: 0; font-size: 2.4rem;}
   p {font-size: 1.8rem;}
 }
-
-.card-fill {margin-left: -10px;}
 
 .address {
   @media (max-width: 768px) {margin-bottom: 1rem;}
