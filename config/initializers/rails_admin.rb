@@ -19,7 +19,7 @@ RailsAdmin.config do |config|
     edit
     delete
   end
-
+  config.excluded_models = ["ProviderInsurer"]
   config.model 'User' do
     include_fields :email, :role
     configure :email do
