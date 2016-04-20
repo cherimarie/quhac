@@ -1,5 +1,7 @@
 class Provider < ActiveRecord::Base
   validates :name, :clinic_id, presence: true
+  validates_inclusion_of :icon, in: [nil, 'a', 'b', 'c']
+
   belongs_to :clinic
   delegate :street_address, :city, :zip, :phone, :website, to: :clinic
 
@@ -26,6 +28,10 @@ class Provider < ActiveRecord::Base
   scope :lgbtq_trained, -> { where lgbtq_trained: true }
   scope :cultural_trained, -> { where cultural_trained: true }
 
+  # RailsAdmin uses this to show the dropdown of choices for icon attr
+  def icon_enum
+    [[nil], ['a'], ['b'], ['c']]
+  end
 
   def self.search(search)
     search_length = search.split.length

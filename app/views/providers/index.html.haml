@@ -9,7 +9,7 @@
   .col-xs-10.col-xs-offset-1
     - @providers.each do |provider|
       .row.card.box-shadow
-        .col-xs-2.icon
+        .col-xs-2.icon{class: provider.icon}
         .col-xs-10.card-fill
           .row
             .col-xs-12.provider-index-head
