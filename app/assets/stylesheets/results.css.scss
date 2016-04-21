@@ -23,14 +23,35 @@ p {margin: 0}
     @media (max-width: 992px) {min-width: 9rem; background-size: 9rem; height: 9rem; }
     @media (max-width: 768px) {min-width: 7rem; background-size: 7rem; height: 7rem; }
     @media (max-width: 650px) {display: none;}
-    &.a {
-      background-image: asset_url('a-logo.png');
+    &.arnp {
+      background-image: asset_url('arnp-icon.png');
     }
-    &.b {
-      background-image: asset_url('b-logo.png');
+    &.cn {
+      background-image: asset_url('cn-icon.png');
     }
-    &.c {
-      background-image: asset_url('c-logo.png');
+    &.dc {
+      background-image: asset_url('dc-icon.png');
+    }
+    &.eamp {
+      background-image: asset_url('eamp-icon.png');
+    }
+    &.licsw {
+      background-image: asset_url('licsw-icon.png');
+    }
+    &.lmft {
+      background-image: asset_url('lmft-icon.png');
+    }
+    &.msw {
+      background-image: asset_url('msw-icon.png');
+    }
+    &.pac {
+      background-image: asset_url('pac-icon.png');
+    }
+    &.phd {
+      background-image: asset_url('phd-icon.png');
+    }
+    &.psyd {
+      background-image: asset_url('psyd-icon.png');
     }
   }
 }
