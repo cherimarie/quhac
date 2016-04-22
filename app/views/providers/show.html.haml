@@ -1,136 +1,138 @@
-.row
-  .col-xs-11.col-xs-offset-1
-    %h2= @provider.name
-    %p= @provider.type
-    %p= @provider.clinic.name
-    %p= @provider.street_address
-    %p= @provider.city
-    %p= @provider.email
-
-%hr
-  .row.filter-big-row
-    .col-xs-11.col-xs-offset-1
+.provider-show
+  .row
+    .col-xs-10.col-xs-offset-1.card.box-shadow
       .row
-        .col-xs-12
-          %h3 Insurance
+        .col-xs-10.col-xs-offset-1
+          %h2= @provider.name
+          %p= @provider.type
+          %p= @provider.clinic.name
+          %p= @provider.street_address
+          %p= @provider.city
+          %p= @provider.email
       .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question This provider accepts the following insurances:
-          %ul
-            - @provider.insurers.each do |insurer|
-              %li= insurer.name
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Does this provider accept Medicaid?
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p= @provider.accepts_medicaid
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Does this provider accept Medicare?
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p= @provider.accepts_medicare
-%hr
-  .row.filter-big-row
-    .col-xs-11.col-xs-offset-1
-      .row
-        .col-xs-12
-          %h3 Practice
-
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
+        .col-xs-10.col-xs-offset-1
           - show = @provider.new_clients ? "is" : "is not"
-          %p.question
+          %p.accepting
             This provider
             %span.embedded-answer= show
             accepting new patients at this time
 
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Specialization
-          %p= @provider.specialization || "N/A"
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Expertise
-          %p= @provider.population_expertise || "N/A"
-%hr
-  .row.filter-big-row
-    .col-xs-11.col-xs-offset-1
-      .row
-        .col-xs-12
-          %h3 Identity
+  %hr
+    .row.filter-big-row
+      .col-xs-10.col-xs-offset-1.card.box-shadow
+        .row
+          .col-xs-10.col-xs-offset-1
+            %h3 Insurance
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question This provider accepts the following insurances:
+            %ul
+              - @provider.insurers.each do |insurer|
+                %li= insurer.name
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Does this provider accept Medicaid?
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p= @provider.accepts_medicaid
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Does this provider accept Medicare?
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p= @provider.accepts_medicare
+  %hr
+    .row.filter-big-row
+      .col-xs-10.col-xs-offset-1.card.box-shadow
+        .row
+          .col-xs-10.col-xs-offset-1
+            %h3 Practice
 
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Gender Identity
-          %p= @provider.gender_id || "N/A"
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Sexual Orientation
-          %p= @provider.orientation || "N/A"
-%hr
-  .row.filter-big-row
-    .col-xs-11.col-xs-offset-1
-      .row
-        .col-xs-12
-          %h3 Training and Practices
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Specialization
+            %p= @provider.specialization || "N/A"
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Expertise
+            %p= @provider.population_expertise || "N/A"
+  %hr
+    .row.filter-big-row
+      .col-xs-10.col-xs-offset-1.card.box-shadow
+        .row
+          .col-xs-10.col-xs-offset-1
+            %h3 Identity
 
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Gender Neutral Restrooms?
-          %p= @provider.gender_neutral_rr || "N/A"
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Comprehensive intake forms that include a patient's chosen name and gender pronouns?
-          %p= @provider.comprehensive_intake || "N/A"
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Clinic uses a patient's chosen name (as opposed to their legal name) on their chart?
-          %p= @provider.use_pref_name || "N/A"
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Trans standard of care used:
-          %p= @provider.trans_standard_of_care || "N/A"
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Staff Fully Trained in LGBTQ Issues?
-          %p= @provider.lgbtq_trained || "N/A"
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Description
-          %p= @provider.lgbtq_training_details || "N/A"
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Staff Fully Trained in Racial & Cultural Issues?
-          %p= @provider.cultural_trained || "N/A"
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Description
-          %p= @provider.cultural_training_details || "N/A"
-%hr
-  .row.filter-big-row
-    .col-xs-11.col-xs-offset-1
-      .row
-        .col-xs-12
-          %h3 Values
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Gender Identity
+            %p= @provider.gender_id || "N/A"
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Sexual Orientation
+            %p= @provider.orientation || "N/A"
+  %hr
+    .row.filter-big-row
+      .col-xs-10.col-xs-offset-1.card.box-shadow
+        .row
+          .col-xs-10.col-xs-offset-1
+            %h3 Training and Practices
 
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question What does your clinic do to make the space welcoming and inclusive for LGBQ-identified patients?
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p= @provider.lgbq_incl_strategy || "N/A"
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Gender Neutral Restrooms?
+            %p= @provider.gender_neutral_rr || "N/A"
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Comprehensive intake forms that include a patient's chosen name and gender pronouns?
+            %p= @provider.comprehensive_intake || "N/A"
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Clinic uses a patient's chosen name (as opposed to their legal name) on their chart?
+            %p= @provider.use_pref_name || "N/A"
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Trans standard of care used:
+            %p= @provider.trans_standard_of_care || "N/A"
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Staff Fully Trained in LGBTQ Issues?
+            %p= @provider.lgbtq_trained || "N/A"
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Description
+            %p= @provider.lgbtq_training_details || "N/A"
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Staff Fully Trained in Racial & Cultural Issues?
+            %p= @provider.cultural_trained || "N/A"
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Description
+            %p= @provider.cultural_training_details || "N/A"
+  %hr
+    .row.filter-big-row
+      .col-xs-10.col-xs-offset-1.card.box-shadow
+        .row
+          .col-xs-10.col-xs-offset-1
+            %h3 Values
 
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question What does your clinic do to make the space welcoming and inclusive for trans- and genderqueer-identified patients?
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p= @provider.trans_incl_strategy || "N/A"
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question What does your clinic do to make the space welcoming and inclusive for LGBQ-identified patients?
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p= @provider.lgbq_incl_strategy || "N/A"
 
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question Please describe the ways in which you are involved in LGBTQ community outside of your practice (ex: Do you attend conferences on working with LGBTQ clients? Are you involved in local organizations that serve these communities? etc).
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p= @provider.community_relationship || "N/A"
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question What does your clinic do to make the space welcoming and inclusive for trans- and genderqueer-identified patients?
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p= @provider.trans_incl_strategy || "N/A"
 
-      .row
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p.question What else do you want potential patients to know about you or your clinic?
-        .col-xs-12.col-sm-8.col-sm-offset-2
-          %p= @provider.additional || "N/A"
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question Please describe the ways in which you are involved in LGBTQ community outside of your practice (ex: Do you attend conferences on working with LGBTQ clients? Are you involved in local organizations that serve these communities? etc).
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p= @provider.community_relationship || "N/A"
+
+        .row
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p.question What else do you want potential patients to know about you or your clinic?
+          .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
+            %p= @provider.additional || "N/A"
