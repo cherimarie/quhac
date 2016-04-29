@@ -21,5 +21,10 @@ span.embedded-answer {
     font-size: 2.8rem;
   }
   h2, h3 {border-bottom: 1px solid $brand-gray;}
-  .card {padding-bottom: 6rem;}
+  .card {
+    padding-bottom: 6rem;
+    .row {
+      margin-left: 0;
+    }
+  }
 }
