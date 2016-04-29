@@ -133,3 +133,59 @@ footer {
     }
   }
 }
+
+.icon {
+  @media (min-width: 993px) {min-width: 11rem; background-size: 11rem; height: 11rem; }
+  @media (max-width: 992px) {min-width: 9rem; background-size: 9rem; height: 9rem; }
+  @media (max-width: 768px) {min-width: 7rem; background-size: 7rem; height: 7rem; }
+  @media (max-width: 650px) {display: none;}
+
+  background-image: asset_url('QuHac-logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  &.arnp {
+    background-image: asset_url('arnp-icon.png');
+  }
+  &.atrbc {
+    background-image: asset_url('atrbc-icon.png');
+  }
+  &.cn {
+    background-image: asset_url('cn-icon.png');
+  }
+  &.cdpt {
+    background-image: asset_url('cdpt-icon.png');
+  }
+  &.cnm {
+    background-image: asset_url('cnm-icon.png');
+  }
+  &.dc {
+    background-image: asset_url('dc-icon.png');
+  }
+  &.eamp {
+    background-image: asset_url('eamp-icon.png');
+  }
+  &.ibclc {
+    background-image: asset_url('ibclc-icon.png');
+  }
+  &.licsw {
+    background-image: asset_url('licsw-icon.png');
+  }
+  &.lmft {
+    background-image: asset_url('lmft-icon.png');
+  }
+  &.msw {
+    background-image: asset_url('msw-icon.png');
+  }
+  &.pac {
+    background-image: asset_url('pac-icon.png');
+  }
+  &.phd {
+    background-image: asset_url('phd-icon.png');
+  }
+  &.psyd {
+    background-image: asset_url('psyd-icon.png');
+  }
+  &.pt {
+    background-image: asset_url('pt-icon.png');
+  }
+}
