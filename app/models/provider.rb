@@ -5,7 +5,7 @@ class Provider < ActiveRecord::Base
   belongs_to :clinic
   delegate :street_address, :city, :zip, :phone, :website, to: :clinic
 
-  has_many :provider_insurers, inverse_of: :provider
+  has_many :provider_insurers, dependent: :destroy, inverse_of: :provider
   has_many :insurers, through: :provider_insurers
 
   rails_admin do
