@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420031826) do
+ActiveRecord::Schema.define(version: 20160503024036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160420031826) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_medicaid"
+    t.boolean  "is_medicare"
   end
 
   create_table "provider_insurers", force: true do |t|

@@ -110,6 +110,12 @@ RSpec.describe ProvidersController, type: :controller do
       community_relationship: nil,
       additional: 'I like turtles'
     )
+
+    care = Insurer.create(name: "Medicare", is_medicare: true)
+    caid = Insurer.create(name: "Molina", is_medicaid: true)
+    ProviderInsurer.create(provider_id: @bull_pro.id, insurer_id: caid.id)
+    ProviderInsurer.create(provider_id: @monkey_pro.id, insurer_id: caid.id)
+    ProviderInsurer.create(provider_id: @monkey_pro.id, insurer_id: care.id)
   end
 
 
@@ -304,6 +310,22 @@ RSpec.describe ProvidersController, type: :controller do
 
       expect(assigns(:providers)).to eq([@bull_pro])
     end
+    # TODO
+    # it 'medicaid' do
+    #   get :index, filter_search: {'medicaid' => '1'}
+
+    #   expect(assigns(:providers)).to eq([@bull_pro, @monkey_pro])
+    # end
+    # it 'medicare' do
+    #   get :index, filter_search: {'medicare' => '1'}
+
+    #   expect(assigns(:providers)).to eq([@monkey_pro])
+    # end
+    # it 'medicaid & medicarre' do
+    #   get :index, filter_search: {'medicaid' => '1', 'medicare' => '1'}
+
+    #   expect(assigns(:providers)).to eq([@bull_pro, @monkey_pro])
+    # end
     it 'sorts by name' do
       get :index, filter_search: {'new-clients' => '1', 'sort-by' => 'name'}
 

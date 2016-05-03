@@ -6,9 +6,10 @@
       .row
         .col-xs-12.col-md-11.col-md-offset-1
           %fieldset.insurers
-            - Insurer.all.each do |ins|
-              = label_tag("ins-#{ins.id}", ins.name)
-              = check_box_tag("filter_search[ins-#{ins.id}]")
+            = label_tag("medicare", "Accepts Medicare")
+            = check_box_tag("filter_search[medicare]")
+            = label_tag("medicaid", "Accepts Medicaid")
+            = check_box_tag("filter_search[medicaid]")
 
   .row.filter-big-row
     .col-xs-10.col-xs-offset-1

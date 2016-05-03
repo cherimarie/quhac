@@ -1,6 +1,6 @@
 class Provider < ActiveRecord::Base
   validates :name, :clinic_id, presence: true
-  validates_inclusion_of :icon, in: [nil, 'arnp', 'atrbc', 'cdpt', 'cn', 'cnm', 'dc', 'eamp', 'ibclc', 'licsw', 'lmft', 'msw', 'pac', 'phd', 'psyd', 'pt']
+  validates_inclusion_of :icon, in: [nil, '', 'arnp', 'atrbc', 'cdpt', 'cn', 'cnm', 'dc', 'eamp', 'ibclc', 'licsw', 'lmft', 'msw', 'pac', 'phd', 'psyd', 'pt']
 
   belongs_to :clinic
   delegate :street_address, :city, :zip, :phone, :website, to: :clinic
@@ -28,9 +28,18 @@ class Provider < ActiveRecord::Base
   scope :lgbtq_trained, -> { where lgbtq_trained: true }
   scope :cultural_trained, -> { where cultural_trained: true }
 
+  # TODO: make these work with joins so they return AR associations
+  def self.accepts_medicaid
+    Provider.all.select{|p| p.accepts_medicaid }
+  end
+
+  def self.accepts_medicare
+    Provider.all.select{|p| p.accepts_medicare }
+  end
+
   # RailsAdmin uses this to show the dropdown of choices for icon attr
   def icon_enum
-    [[nil], ['arnp'], ['atrbc'], ['cn'], ['cdpt'], ['cnm'], ['dc'], ['eamp'], ['ibclc'], ['licsw'], ['lmft'], ['msw'], ['pac'], ['phd'], ['psyd'], ['pt']]
+    [[nil], [''], ['arnp'], ['atrbc'], ['cn'], ['cdpt'], ['cnm'], ['dc'], ['eamp'], ['ibclc'], ['licsw'], ['lmft'], ['msw'], ['pac'], ['phd'], ['psyd'], ['pt']]
   end
 
   def self.search(search)
@@ -60,15 +69,10 @@ class Provider < ActiveRecord::Base
   end
 
   def accepts_medicaid
-    ins = insurers.map{|i| i.name}
-    medicaid = ['Molina', 'Coordinated Care', 'Amerigroup']
-
-    return "yes" if (ins & medicaid).present?
-    "no"
+    insurers.where(is_medicaid: true).present?
   end
 
   def accepts_medicare
-    return "yes" if insurers.map{|i| i.name}.include? 'Medicare'
-    "no"
+    insurers.where(is_medicare: true).present?
   end
 end

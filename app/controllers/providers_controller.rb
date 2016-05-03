@@ -44,6 +44,8 @@ class ProvidersController < ApplicationController
     providers = providers.comprehensive_intake if filters['comp-intake']
     providers = providers.lgbtq_trained if filters['lgbtq-trained']
     providers = providers.cultural_trained if filters['cultu-trained']
+    # providers = providers.accepts_medicare if filters['medicare']
+    # providers = providers.accepts_medicaid if filters['medicaid']
 
     case filters['sort-by']
     when 'name', 'type'
