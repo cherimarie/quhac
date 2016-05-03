@@ -27,12 +27,12 @@
                 .col-xs-4
                   %p Medicaid?
                 .col-xs-2
-                  %p= provider.accepts_medicaid
+                  %p= provider.accepts_medicaid ? 'yes' : 'no'
               .row
                 .col-xs-4
                   %p Medicare?
                 .col-xs-2
-                  %p= provider.accepts_medicare
+                  %p= provider.accepts_medicare ? 'yes' : 'no'
               .row
                 .col-xs-12
                   Insurance accepted:

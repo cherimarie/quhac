@@ -34,12 +34,12 @@
           .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
             %p.question Does this provider accept Medicaid?
           .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
-            %p= @provider.accepts_medicaid
+            %p= @provider.accepts_medicaid ? 'yes' : 'no'
         .row
           .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
             %p.question Does this provider accept Medicare?
           .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
-            %p= @provider.accepts_medicare
+            %p= @provider.accepts_medicare ? 'yes' : 'no'
   %hr
     .row.filter-big-row
       .col-xs-10.col-xs-offset-1.card.box-shadow
