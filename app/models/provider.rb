@@ -1,6 +1,8 @@
 class Provider < ActiveRecord::Base
+  ICON_LIST = [[nil], [''], ['arnp'], ['atrbc'], ['cn'], ['cdpt'], ['cnm'], ['dc'], ['eamp'], ['ibclc'], ['licsw'], ['lmhc'], ['lmft'], ['md'], ['msw'], ['nd'], ['pac'], ['phd'], ['psyd'], ['pt']]
+
   validates :name, :clinic_id, presence: true
-  validates_inclusion_of :icon, in: [nil, '', 'arnp', 'atrbc', 'cdpt', 'cn', 'cnm', 'dc', 'eamp', 'ibclc', 'licsw', 'lmft', 'msw', 'pac', 'phd', 'psyd', 'pt']
+  validates_inclusion_of :icon, in: ICON_LIST.flatten
 
   belongs_to :clinic
   delegate :street_address, :city, :zip, :phone, :website, to: :clinic
@@ -28,18 +30,22 @@ class Provider < ActiveRecord::Base
   scope :lgbtq_trained, -> { where lgbtq_trained: true }
   scope :cultural_trained, -> { where cultural_trained: true }
 
-  # TODO: make these work with joins so they return AR associations
+  def self.accepts_medicare_and_medicaid
+    # use & instead of chaining so it returns intersection, not union
+    self.accepts_medicare.all & self.accepts_medicaid.all
+  end
+
   def self.accepts_medicaid
-    Provider.all.select{|p| p.accepts_medicaid }
+    joins(:provider_insurers).joins(:insurers).where(insurers: { is_medicaid: true}).uniq!
   end
 
   def self.accepts_medicare
-    Provider.all.select{|p| p.accepts_medicare }
+    joins(:provider_insurers).joins(:insurers).where(insurers: { is_medicare: true}).uniq!
   end
 
   # RailsAdmin uses this to show the dropdown of choices for icon attr
   def icon_enum
-    [[nil], [''], ['arnp'], ['atrbc'], ['cn'], ['cdpt'], ['cnm'], ['dc'], ['eamp'], ['ibclc'], ['licsw'], ['lmft'], ['msw'], ['pac'], ['phd'], ['psyd'], ['pt']]
+    ICON_LIST
   end
 
   def self.search(search)

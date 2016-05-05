@@ -111,8 +111,8 @@ RSpec.describe ProvidersController, type: :controller do
       additional: 'I like turtles'
     )
 
-    care = Insurer.create(name: "Medicare", is_medicare: true)
-    caid = Insurer.create(name: "Molina", is_medicaid: true)
+    care = Insurer.create(name: "Medicare", is_medicare: true, is_medicaid: nil)
+    caid = Insurer.create(name: "Molina", is_medicaid: true, is_medicare: false)
     ProviderInsurer.create(provider_id: @bull_pro.id, insurer_id: caid.id)
     ProviderInsurer.create(provider_id: @monkey_pro.id, insurer_id: caid.id)
     ProviderInsurer.create(provider_id: @monkey_pro.id, insurer_id: care.id)
@@ -310,22 +310,28 @@ RSpec.describe ProvidersController, type: :controller do
 
       expect(assigns(:providers)).to eq([@bull_pro])
     end
-    # TODO
-    # it 'medicaid' do
-    #   get :index, filter_search: {'medicaid' => '1'}
+    it 'medicaid' do
+      get :index, filter_search: {'medicaid' => '1'}
 
-    #   expect(assigns(:providers)).to eq([@bull_pro, @monkey_pro])
-    # end
-    # it 'medicare' do
-    #   get :index, filter_search: {'medicare' => '1'}
+      expect(assigns(:providers).length).to eq(2)
+      expect(assigns(:providers).include? @monkey_pro)
+      expect(assigns(:providers).include? @bull_pro)
+    end
+    it 'medicare' do
+      get :index, filter_search: {'medicare' => '1'}
 
-    #   expect(assigns(:providers)).to eq([@monkey_pro])
-    # end
-    # it 'medicaid & medicarre' do
-    #   get :index, filter_search: {'medicaid' => '1', 'medicare' => '1'}
+      expect(assigns(:providers)).to eq([@monkey_pro])
+    end
+    it 'medicaid and new-clients' do
+      get :index, filter_search: {'medicaid' => '1', 'new-clients' => '1'}
 
-    #   expect(assigns(:providers)).to eq([@bull_pro, @monkey_pro])
-    # end
+      expect(assigns(:providers)).to eq([@bull_pro])
+    end
+    it 'medicaid & medicare' do
+      get :index, filter_search: {'medicaid' => '1', 'medicare' => '1'}
+
+      expect(assigns(:providers)).to eq([@monkey_pro])
+    end
     it 'sorts by name' do
       get :index, filter_search: {'new-clients' => '1', 'sort-by' => 'name'}
 
