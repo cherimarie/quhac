@@ -80,30 +80,30 @@
         .row
           .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
             %p.question Gender Neutral Restrooms?
-            %p= @provider.gender_neutral_rr || "N/A"
+            %p= @provider.gender_neutral_rr ? "yes" : "N/A"
         .row
           .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
             %p.question Comprehensive intake forms that include a patient's chosen name and gender pronouns?
-            %p= @provider.comprehensive_intake || "N/A"
+            %p= @provider.comprehensive_intake ? "yes" : "N/A"
         .row
           .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
             %p.question Clinic uses a patient's chosen name (as opposed to their legal name) on their chart?
-            %p= @provider.use_pref_name || "N/A"
+            %p= @provider.use_pref_name ? "yes" : "N/A"
         .row
           .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
             %p.question Trans standard of care used:
             %p= @provider.trans_standard_of_care || "N/A"
         .row
           .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
-            %p.question Staff Fully Trained in LGBTQ Issues?
-            %p= @provider.lgbtq_trained || "N/A"
+            %p.question Staff Trained in LGBTQ Issues?
+            %p= @provider.lgbtq_trained ? "yes" : "N/A"
           .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
             %p.question Description
             %p= @provider.lgbtq_training_details || "N/A"
         .row
           .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
-            %p.question Staff Fully Trained in Racial & Cultural Issues?
-            %p= @provider.cultural_trained || "N/A"
+            %p.question Staff Trained in Racial & Cultural Issues?
+            %p= @provider.cultural_trained ? "yes" : "N/A"
           .col-xs-10.col-xs-offset-1.col-lg-8.col-lg-offset-2
             %p.question Description
             %p= @provider.cultural_training_details || "N/A"
