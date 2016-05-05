@@ -310,22 +310,26 @@ RSpec.describe ProvidersController, type: :controller do
 
       expect(assigns(:providers)).to eq([@bull_pro])
     end
-    # TODO
-    # it 'medicaid' do
-    #   get :index, filter_search: {'medicaid' => '1'}
+    it 'medicaid' do
+      get :index, filter_search: {'medicaid' => '1'}
 
-    #   expect(assigns(:providers)).to eq([@bull_pro, @monkey_pro])
-    # end
-    # it 'medicare' do
-    #   get :index, filter_search: {'medicare' => '1'}
+      expect(assigns(:providers)).to eq([@bull_pro, @monkey_pro])
+    end
+    it 'medicare' do
+      get :index, filter_search: {'medicare' => '1'}
 
-    #   expect(assigns(:providers)).to eq([@monkey_pro])
-    # end
-    # it 'medicaid & medicarre' do
-    #   get :index, filter_search: {'medicaid' => '1', 'medicare' => '1'}
+      expect(assigns(:providers)).to eq([@monkey_pro])
+    end
+    it 'medicaid and new-clients' do
+      get :index, filter_search: {'medicaid' => '1', 'new-clients' => '1'}
 
-    #   expect(assigns(:providers)).to eq([@bull_pro, @monkey_pro])
-    # end
+      expect(assigns(:providers)).to eq([@bull_pro])
+    end
+    it 'medicaid & medicare' do
+      get :index, filter_search: {'medicaid' => '1', 'medicare' => '1'}
+
+      expect(assigns(:providers)).to eq([@monkey_pro])
+    end
     it 'sorts by name' do
       get :index, filter_search: {'new-clients' => '1', 'sort-by' => 'name'}
 

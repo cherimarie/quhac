@@ -30,13 +30,16 @@ class Provider < ActiveRecord::Base
   scope :lgbtq_trained, -> { where lgbtq_trained: true }
   scope :cultural_trained, -> { where cultural_trained: true }
 
-  # TODO: make these work with joins so they return AR associations
+  def self.accepts_medicare_and_medicaid
+    joins(:provider_insurers).joins(:insurers).where(insurers: { is_medicaid: true}, insurers: { is_medicare: true }).uniq!
+  end
+
   def self.accepts_medicaid
-    Provider.all.select{|p| p.accepts_medicaid }
+    joins(:provider_insurers).joins(:insurers).where(insurers: { is_medicaid: true}).uniq!
   end
 
   def self.accepts_medicare
-    Provider.all.select{|p| p.accepts_medicare }
+    joins(:provider_insurers).joins(:insurers).where(insurers: { is_medicare: true}).uniq!
   end
 
   # RailsAdmin uses this to show the dropdown of choices for icon attr
