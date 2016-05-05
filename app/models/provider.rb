@@ -31,7 +31,8 @@ class Provider < ActiveRecord::Base
   scope :cultural_trained, -> { where cultural_trained: true }
 
   def self.accepts_medicare_and_medicaid
-    joins(:provider_insurers).joins(:insurers).where(insurers: { is_medicaid: true}, insurers: { is_medicare: true }).uniq!
+    # use & instead of chaining so it returns intersection, not union
+    self.accepts_medicare.all & self.accepts_medicaid.all
   end
 
   def self.accepts_medicaid
