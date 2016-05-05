@@ -33,10 +33,6 @@
                   %p Medicare?
                 .col-xs-2
                   %p= provider.accepts_medicare ? 'yes' : 'no'
-              .row
-                .col-xs-12
-                  Insurance accepted:
-                  %p= provider.insurers.map { |ins| ins.name } .join(", ")
 
 - if @showing_results
   .row
