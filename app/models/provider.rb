@@ -1,6 +1,8 @@
 class Provider < ActiveRecord::Base
+  ICON_LIST = [[nil], [''], ['arnp'], ['atrbc'], ['cn'], ['cdpt'], ['cnm'], ['dc'], ['eamp'], ['ibclc'], ['licsw'], ['lmhc'], ['lmft'], ['md'], ['msw'], ['nd'], ['pac'], ['phd'], ['psyd'], ['pt']]
+
   validates :name, :clinic_id, presence: true
-  validates_inclusion_of :icon, in: [nil, '', 'arnp', 'atrbc', 'cdpt', 'cn', 'cnm', 'dc', 'eamp', 'ibclc', 'licsw', 'lmft', 'msw', 'pac', 'phd', 'psyd', 'pt']
+  validates_inclusion_of :icon, in: ICON_LIST.flatten
 
   belongs_to :clinic
   delegate :street_address, :city, :zip, :phone, :website, to: :clinic
@@ -39,7 +41,7 @@ class Provider < ActiveRecord::Base
 
   # RailsAdmin uses this to show the dropdown of choices for icon attr
   def icon_enum
-    [[nil], [''], ['arnp'], ['atrbc'], ['cn'], ['cdpt'], ['cnm'], ['dc'], ['eamp'], ['ibclc'], ['licsw'], ['lmft'], ['msw'], ['pac'], ['phd'], ['psyd'], ['pt']]
+    ICON_LIST
   end
 
   def self.search(search)
