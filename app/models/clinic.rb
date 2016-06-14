@@ -1,7 +1,7 @@
 class Clinic < ActiveRecord::Base
   validates :street_address, :phone, :city, :zip, presence: true
 
-  has_many :providers
+  has_many :providers, dependent: :destroy
 
   rails_admin do
     configure :providers do
