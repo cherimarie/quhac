@@ -8,7 +8,7 @@ module FilterFormHelper
   end
 
   def gender_identities
-    Provider.all.map{ |p| p.gender_id }.compact.uniq.reject{ |el| el.empty? }
+    Provider.all.map{ |p| p.gender_id.downcase if p.gender_id }.compact.uniq.reject{ |el| el.empty? }
   end
 
   def orientations
