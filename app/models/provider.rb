@@ -22,7 +22,7 @@ class Provider < ActiveRecord::Base
   scope :type, -> (type) { where type: type }
   scope :expertise_includes, -> (exp) { where population_expertise: exp }
   scope :specialization, -> (spec) { where specialization: spec }
-  scope :gender_id, -> (gender) { where gender_id: gender }
+  scope :gender_id, -> (gender) { where 'lower(gender_id) = ?', gender }
   scope :orientation, -> (orientation) { where orientation: orientation }
   scope :use_pref_name, -> { where use_pref_name: true }
   scope :gender_neutral_rr, -> { where gender_neutral_rr: true }
