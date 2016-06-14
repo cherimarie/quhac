@@ -24,5 +24,8 @@ RSpec.describe Clinic, type: :model do
     it "has many providers" do
       expect(@clinic.providers).to eq([@pro])
     end
+    it "destroys dependent providers on delete" do
+      expect{@clinic.destroy}.to change{Provider.count}.by(-1)
+    end
   end
 end
